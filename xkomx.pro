@@ -21,6 +21,9 @@ SOURCES += \
 HEADERS += \
     currentuser.h \
     dbmanager.h \
+    device.h \
+    devicetype.h \
+    imagetype.h \
     mainwindow.h \
     newuser.h \
     productwidget.h \

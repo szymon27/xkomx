@@ -12,3 +12,11 @@ ProductWidget::~ProductWidget()
 {
     delete ui;
 }
+
+void ProductWidget::setProduct(Device device)
+{
+    ui->lbName->setText(device.m_producer);
+    ui->lbPrice->setText(QString::number(device.m_price));
+    ui->lbImage->setPixmap(QPixmap::fromImage(device.m_image));
+    ui->lbProducer->setText(device.m_description);
+}

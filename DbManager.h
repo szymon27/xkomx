@@ -6,6 +6,10 @@
 #include <QVariant>
 #include "user.h"
 #include "newuser.h"
+#include <QVector>
+#include "device.h"
+#include <QBuffer>
+#include <QImageReader>
 
 class DbManager
 {
@@ -23,6 +27,8 @@ public:
     User signIn(QString username, QString password);
     bool userExists(QString username);
     bool signUp(NewUser user);
+
+    QVector<Device> getDevicesList() const;
 };
 
 #endif // DBMANAGER_H

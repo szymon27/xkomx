@@ -4,8 +4,8 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\xkomx\\xkomx.db");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\xkomx\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     m_qSqlDatabase.open();
 }
 
@@ -79,3 +79,32 @@ bool DbManager::signUp(NewUser newUser) {
 
     return query.exec();
 }
+
+QVector<Device> DbManager::getDevicesList() const
+{
+    QVector<Device> list;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM devices;");
+    query.exec();
+    while(query.next()) {
+        int id = query.value(0).toInt();
+        DeviceType deviceType = (DeviceType)query.value(1).toInt();
+        QString producer = query.value(2).toString();
+        QString model = query.value(3).toString();
+        QString description = query.value(4).toString();
+        int count = query.value(5).toInt();
+        double price = query.value(6).toDouble();
+        QByteArray byteArray = query.value(7).toByteArray();
+        ImageType imageType = (ImageType)query.value(8).toInt();
+        QBuffer buffer(&byteArray);
+        buffer.open(QIODevice::ReadOnly);
+        QImageReader imageReader(&buffer, (imageType == ImageType::PNG) ? "PNG" : "JPG");
+        QImage image = imageReader.read();
+
+
+        Device device(id, deviceType, producer, model, description, count, price, image, imageType);
+        list.append(device);
+    }
+    return list;
+}
+

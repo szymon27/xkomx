@@ -33,7 +33,11 @@ void MainWindow::on_btnSignIn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ProductWidget *productWidget = new ProductWidget();
-    ui->vlProducts->addWidget(productWidget);
+    QVector<Device> devices = DbManager::getInstance()->getDevicesList();
+    for(int i = 0; i < devices.size(); i++) {
+        ProductWidget *productWidget = new ProductWidget();
+        productWidget->setProduct(devices.at(i));
+        ui->vlProducts->addWidget(productWidget);
+    }
 }
 
