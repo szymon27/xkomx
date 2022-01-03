@@ -9,6 +9,7 @@ class Program : public QObject {
 public:
     explicit Program(QObject* parent = nullptr);
     void setGUI(MainWindow* ui = nullptr);
+
 private:
     MainWindow* GUI = nullptr;
 };

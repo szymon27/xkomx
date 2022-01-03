@@ -46,7 +46,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="lePassword">
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
@@ -57,16 +57,16 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_Buttons">
        <item>
-        <widget class="QPushButton" name="btnLogin">
+        <widget class="QPushButton" name="btnSignIn">
          <property name="text">
           <string>Sign in</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="btnSignUp">
          <property name="text">
-          <string>Create account</string>
+          <string>Sign up</string>
          </property>
         </widget>
        </item>

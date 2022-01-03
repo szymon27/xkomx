@@ -130,14 +130,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QLineEdit" name="leCountry"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="btnConfirm">
+        <widget class="QPushButton" name="btnSignUp">
          <property name="text">
-          <string>Confirm</string>
+          <string>Sign up</string>
          </property>
         </widget>
        </item>

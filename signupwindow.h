@@ -2,6 +2,9 @@
 #define SIGNUPWINDOW_H
 
 #include <QDialog>
+#include "newuser.h"
+#include "dbmanager.h"
+#include "currentuser.h"
 
 namespace Ui {
 class SignUpWindow;
@@ -14,6 +17,9 @@ class SignUpWindow : public QDialog
 public:
     explicit SignUpWindow(QWidget *parent = nullptr);
     ~SignUpWindow();
+
+private slots:
+    void on_btnSignUp_clicked();
 
 private:
     Ui::SignUpWindow *ui;
