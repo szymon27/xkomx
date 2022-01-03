@@ -23,14 +23,14 @@
    <item row="1" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="lbLogin">
+      <widget class="QLabel" name="lbUsername">
        <property name="text">
-        <string>Login</string>
+        <string>Username</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="leLogin"/>
+      <widget class="QLineEdit" name="leUsername"/>
      </item>
      <item>
       <widget class="QLabel" name="lbPassword">

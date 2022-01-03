@@ -15,7 +15,7 @@ SignUpWindow::~SignUpWindow()
 
 void SignUpWindow::on_btnSignUp_clicked()
 {
-    QString username = ui->leLogin->text();
+    QString username = ui->leUsername->text();
     QString password = ui->lePassword->text();
     QString confirmPassword = ui->leConfirmPassword->text();
     QString name = ui->leName->text();

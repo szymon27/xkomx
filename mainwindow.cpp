@@ -5,6 +5,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->scrollArea->takeWidget();
+    ui->scrollArea->setWidget(ui->verticalLayoutWidget);
 }
 
 MainWindow::~MainWindow()
@@ -26,5 +28,12 @@ void MainWindow::on_btnSignIn_clicked()
     }
     ui->btnSignIn->setText("Sign in");
     CurrentUser::getInstance()->setUser(User());
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ProductWidget *productWidget = new ProductWidget();
+    ui->vlProducts->addWidget(productWidget);
 }
 

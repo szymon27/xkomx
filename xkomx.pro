@@ -13,6 +13,7 @@ SOURCES += \
     dbmanager.cpp \
     main.cpp \
     mainwindow.cpp \
+    productwidget.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
     user.cpp
@@ -22,6 +23,7 @@ HEADERS += \
     dbmanager.h \
     mainwindow.h \
     newuser.h \
+    productwidget.h \
     signinwindow.h \
     signupwindow.h \
     user.h \
@@ -29,6 +31,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    productwidget.ui \
     signinwindow.ui \
     signupwindow.ui
 

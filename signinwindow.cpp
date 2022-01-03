@@ -15,7 +15,7 @@ SignInWindow::~SignInWindow()
 
 void SignInWindow::on_btnSignIn_clicked()
 {
-    QString username = ui->leLogin->text();
+    QString username = ui->leUsername->text();
     QString password = ui->lePassword->text();
 
     // ########## walidacja
