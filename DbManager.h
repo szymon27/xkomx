@@ -10,6 +10,7 @@
 #include "device.h"
 #include <QBuffer>
 #include <QImageReader>
+#include <imagetype.h>
 
 class DbManager
 {

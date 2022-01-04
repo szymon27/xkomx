@@ -4,7 +4,7 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\xkomx\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     m_qSqlDatabase.open();
 }
@@ -98,7 +98,7 @@ QVector<Device> DbManager::getDevicesList() const
         ImageType imageType = (ImageType)query.value(8).toInt();
         QBuffer buffer(&byteArray);
         buffer.open(QIODevice::ReadOnly);
-        QImageReader imageReader(&buffer, (imageType == ImageType::PNG) ? "PNG" : "JPG");
+        QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
         QImage image = imageReader.read();
 
 

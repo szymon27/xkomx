@@ -33,6 +33,9 @@ void MainWindow::on_btnSignIn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    while(ui->vlProducts->count() > 0)
+        delete ui->vlProducts->takeAt(0);
+
     QVector<Device> devices = DbManager::getInstance()->getDevicesList();
     for(int i = 0; i < devices.size(); i++) {
         ProductWidget *productWidget = new ProductWidget();

@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     currentuser.cpp \
     dbmanager.cpp \
+    imagetype.cpp \
     main.cpp \
     mainwindow.cpp \
     productwidget.cpp \
