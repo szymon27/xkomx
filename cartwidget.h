@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "DbManager.h"
 #include "cartdevicewidget.h"
+#include "shipmentwidget.h"
 
 namespace Ui {
 class CartWidget;
@@ -17,6 +18,9 @@ public:
     explicit CartWidget(QWidget *parent = nullptr);
     ~CartWidget();
     void setUpWidget();
+private slots:
+    void on_btnBuy_clicked();
+
 private:
     Ui::CartWidget *ui;
 };

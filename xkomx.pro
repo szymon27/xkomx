@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     mainwidget.cpp \
     mainwindow.cpp \
+    shipmentwidget.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
     user.cpp
@@ -35,6 +36,7 @@ HEADERS += \
     mainwidget.h \
     mainwindow.h \
     newuser.h \
+    shipmentwidget.h \
     signinwindow.h \
     signupwindow.h \
     user.h \
@@ -46,6 +48,7 @@ FORMS += \
     devicewidget.ui \
     mainwidget.ui \
     mainwindow.ui \
+    shipmentwidget.ui \
     signinwindow.ui \
     signupwindow.ui
 

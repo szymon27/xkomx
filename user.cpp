@@ -1,5 +1,35 @@
 #include "user.h"
 
+const QString &User::name() const
+{
+    return m_name;
+}
+
+const QString &User::surname() const
+{
+    return m_surname;
+}
+
+const QString &User::address() const
+{
+    return m_address;
+}
+
+const QString &User::postCode() const
+{
+    return m_postCode;
+}
+
+const QString &User::city() const
+{
+    return m_city;
+}
+
+const QString &User::country() const
+{
+    return m_country;
+}
+
 User::User()
     :m_id(0), m_userType(UserType::Guest), m_username(""), m_password(""), m_name(""),
       m_surname(""), m_address(""), m_postCode(""), m_city(""), m_country("")

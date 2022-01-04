@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ShipmentWidget</class>
+ <widget class="QWidget" name="ShipmentWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leSurname"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="leCountry"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lePostalcode"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="leAddress"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbSurname">
+       <property name="text">
+        <string>Surname</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lbName">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lbAddress">
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lbCountry">
+       <property name="text">
+        <string>Country</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="leCity"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="leName"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lbPostalcode">
+       <property name="text">
+        <string>Postal Code</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lbCity">
+       <property name="text">
+        <string>City</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QPushButton" name="bntPayment">
+       <property name="text">
+        <string>Go to payment</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

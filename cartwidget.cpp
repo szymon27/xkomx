@@ -27,3 +27,17 @@ void CartWidget::setUpWidget()
         ui->vlCart->addWidget(deviceWidget);
     }
 }
+
+void CartWidget::on_btnBuy_clicked()
+{
+    QLayoutItem* item;
+    while ( ( item = ui->vlCart->takeAt( 0 ) ) != NULL )
+    {
+        delete item->widget();
+        delete item;
+    }
+    ShipmentWidget *shipmentWidget = new ShipmentWidget();
+    shipmentWidget->setShipmentInfo();
+    ui->vlCart->addWidget(shipmentWidget);
+}
+
