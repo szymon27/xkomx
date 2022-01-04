@@ -1,5 +1,6 @@
 #ifndef DEVICETYPE_H
 #define DEVICETYPE_H
+#include <QString>
 
 enum DeviceType {
     Monitor = 1,
@@ -7,5 +8,5 @@ enum DeviceType {
     Mouse = 3,
     Keyboard = 4
 };
-
+QString deviceTypeToString(DeviceType imageType);
 #endif // DEVICETYPE_H

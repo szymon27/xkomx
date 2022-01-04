@@ -3,7 +3,9 @@
 #include <QMainWindow>
 #include "signinwindow.h"
 #include "currentuser.h"
-#include "productwidget.h"
+#include "devicewidget.h"
+#include "mainwidget.h"
+#include "cartwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,9 +22,13 @@ public:
 private slots:
     void on_btnSignIn_clicked();
 
-    void on_pushButton_clicked();
+    void on_btnShop_clicked();
 
+    void on_btnCart_clicked();
+
+    void prepCurrentWidget(QWidget*);
 private:
     Ui::MainWindow* ui = nullptr;
+    QWidget *currentWidget = nullptr;
 };
 #endif // MAINWINDOW_H
