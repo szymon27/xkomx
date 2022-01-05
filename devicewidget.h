@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "device.h"
 #include "devicetype.h"
+#include "devicedetailswindow.h"
 
 namespace Ui {
 class DeviceWidget;
@@ -14,11 +15,17 @@ class DeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit DeviceWidget(QWidget *parent = nullptr);
+    explicit DeviceWidget(Device device, QWidget *parent = nullptr);
     ~DeviceWidget();
     void setDevice(Device device);
+    Device getDevice(){return m_device;}
+
+private slots:
+    void on_btnDetails_clicked();
 
 private:
+    Device m_device;
+    void setControls();
     Ui::DeviceWidget *ui;
 };
 

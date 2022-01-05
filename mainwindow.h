@@ -6,6 +6,8 @@
 #include "devicewidget.h"
 #include "mainwidget.h"
 #include "cartwidget.h"
+#include "adminpanelwindow.h"
+#include "edituserwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +29,10 @@ private slots:
     void on_btnCart_clicked();
 
     void prepCurrentWidget(QWidget*);
+    void on_btnAdminPanel_clicked();
+
+    void on_btnProfile_clicked();
+
 private:
     Ui::MainWindow* ui = nullptr;
     QWidget *currentWidget = nullptr;

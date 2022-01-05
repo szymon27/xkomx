@@ -22,6 +22,7 @@ public:
         :m_id(id), m_deviceType(deviceType), m_producer(producer), m_model(model),
           m_description(description), m_count(count), m_price(price), m_image(image), m_imageType(imageType)
     {}
+    QString descriptionToString(){return m_description;};
 };
 
 #endif // DEVICE_H

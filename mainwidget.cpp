@@ -17,13 +17,18 @@ MainWidget::~MainWidget()
 
 void MainWidget::setUpWidget()
 {
-    while(ui->vlShop->count() > 0)
-        delete ui->vlShop->takeAt(0);
+    QLayoutItem* item;
+    while ( ( item = ui->vlShop->takeAt( 0 ) ) != NULL )
+    {
+        delete item->widget();
+        delete item;
+        item = nullptr;
+    }
 
     QVector<Device> devices = DbManager::getInstance()->getDevicesList();
     for(int i = 0; i < devices.size(); i++) {
-        DeviceWidget *productWidget = new DeviceWidget();
-        productWidget->setDevice(devices.at(i));
+        DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
+        //productWidget->setDevice(devices.at(i));
         ui->vlShop->addWidget(productWidget);
     }
 }

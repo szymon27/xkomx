@@ -1,19 +1,21 @@
-#include "shipmentwidget.h"
-#include "ui_shipmentwidget.h"
+#include "edituserwindow.h"
+#include "ui_edituserwindow.h"
 
-ShipmentWidget::ShipmentWidget(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::ShipmentWidget)
+EditUserWindow::EditUserWindow(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::EditUserWindow)
 {
     ui->setupUi(this);
+    setControls();
 }
 
-ShipmentWidget::~ShipmentWidget()
+EditUserWindow::~EditUserWindow()
 {
     delete ui;
 }
 
-void ShipmentWidget::setShipmentInfo(){
+void EditUserWindow::setControls()
+{
     ui->leName->setText(CurrentUser::getInstance()->getUser().name());
     ui->leSurname->setText(CurrentUser::getInstance()->getUser().surname());
     ui->leCountry->setText(CurrentUser::getInstance()->getUser().country());

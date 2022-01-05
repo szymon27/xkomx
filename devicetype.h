@@ -8,5 +8,5 @@ enum DeviceType {
     Mouse = 3,
     Keyboard = 4
 };
-QString deviceTypeToString(DeviceType imageType);
+QString deviceTypeToString(DeviceType deviceType);
 #endif // DEVICETYPE_H
