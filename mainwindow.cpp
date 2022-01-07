@@ -15,17 +15,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnSignIn_clicked()
 {
-    if(CurrentUser::getInstance()->getUser().getUserType() == UserType::Guest) {
+    if(CurrentUser::instance()->user().getUserType() == UserType::Guest) {
         SignInWindow* signInWindow = new SignInWindow(this);
         signInWindow->exec();
         delete signInWindow;
 
-        if(CurrentUser::getInstance()->getUser().getUserType() != UserType::Guest)
+        if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
             ui->btnSignIn->setText("Sign out");
         return;
     }
     ui->btnSignIn->setText("Sign in");
-    CurrentUser::getInstance()->setUser(User());
+    CurrentUser::instance()->setUser(User());
 }
 
 void MainWindow::prepCurrentWidget(QWidget *widget)

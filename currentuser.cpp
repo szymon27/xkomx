@@ -13,7 +13,7 @@ CurrentUser::~CurrentUser()
         delete s_instance;
 }
 
-CurrentUser *CurrentUser::getInstance()
+CurrentUser *CurrentUser::instance()
 {
     if(s_instance == nullptr)
         s_instance = new CurrentUser();
@@ -25,7 +25,7 @@ void CurrentUser::setUser(User user)
     m_user = user;
 }
 
-User CurrentUser::getUser() const
+User CurrentUser::user() const
 {
     return m_user;
 }

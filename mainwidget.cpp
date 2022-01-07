@@ -25,10 +25,9 @@ void MainWidget::setUpWidget()
         item = nullptr;
     }
 
-    QVector<Device> devices = DbManager::getInstance()->getDevicesList();
+    QVector<Device*> devices = DbManager::instance()->devicesList();
     for(int i = 0; i < devices.size(); i++) {
         DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
-        //productWidget->setDevice(devices.at(i));
         ui->vlShop->addWidget(productWidget);
     }
 }

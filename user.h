@@ -32,6 +32,16 @@ public:
     const QString &postCode() const;
     const QString &city() const;
     const QString &country() const;
+    void setId(int newId);
+    void setUserType(UserType newUserType);
+    void setUsername(const QString &newUsername);
+    void setPassword(const QString &newPassword);
+    void setName(const QString &newName);
+    void setSurname(const QString &newSurname);
+    void setAddress(const QString &newAddress);
+    void setPostCode(const QString &newPostCode);
+    void setCity(const QString &newCity);
+    void setCountry(const QString &newCountry);
 };
 
 #endif // USER_H

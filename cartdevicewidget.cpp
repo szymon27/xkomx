@@ -13,12 +13,12 @@ CartDeviceWidget::~CartDeviceWidget()
     delete ui;
 }
 
-void CartDeviceWidget::setCartDevice(Device device)
+void CartDeviceWidget::setCartDevice(Device* device)
 {
     ui->sbxQuantity->setValue(1); //zmiana na ilosc w koszyku z bazy
-    ui->lbProducer->setText(device.m_producer);
-    ui->lbModel->setText(device.m_model);
-    ui->lbPrice->setText(QString::number(device.m_price));
-    ui->lbImage->setPixmap(QPixmap::fromImage(device.m_image));
-    ui->lbTotalPrice->setText(QString::number(device.m_price * 1)); // zmiana na sbxQuantity.getValue()
+    ui->lbProducer->setText(device->producer());
+    ui->lbModel->setText(device->model());
+    ui->lbPrice->setText(QString::number(device->price()));
+    ui->lbImage->setPixmap(QPixmap::fromImage(device->image()));
+    ui->lbTotalPrice->setText(QString::number(device->price() * 1)); // zmiana na sbxQuantity.getValue()
 }

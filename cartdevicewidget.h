@@ -14,7 +14,7 @@ class CartDeviceWidget : public QWidget
 public:
     explicit CartDeviceWidget(QWidget *parent = nullptr);
     ~CartDeviceWidget();
-    void setCartDevice(Device);
+    void setCartDevice(Device* device);
 
 private:
     Ui::CartDeviceWidget *ui;

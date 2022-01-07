@@ -25,10 +25,9 @@ void AdminPanelWindow::on_btnDevices_clicked()
         item = nullptr;
     }
 
-    QVector<Device> devices = DbManager::getInstance()->getDevicesList();
+    QVector<Device*> devices = DbManager::instance()->devicesList();
     for(int i = 0; i < devices.size(); i++) {
         ManagerDeviceWidget *productWidget = new ManagerDeviceWidget(devices.at(i));
-        //productWidget->setDevice(devices.at(i));
         ui->vlList->addWidget(productWidget);
     }
 }

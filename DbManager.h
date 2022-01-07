@@ -11,6 +11,10 @@
 #include <QBuffer>
 #include <QImageReader>
 #include <imagetype.h>
+#include "monitor.h"
+#include "computer.h"
+#include "mouse.h"
+#include "keyboard.h"
 
 class DbManager
 {
@@ -23,13 +27,13 @@ protected:
 public:
     DbManager(DbManager&) = delete;
     DbManager operator=(DbManager&) = delete;
-    static DbManager* getInstance();
+    static DbManager* instance();
 
     User signIn(QString username, QString password);
     bool userExists(QString username);
     bool signUp(NewUser user);
 
-    QVector<Device> getDevicesList() const;
+    QVector<Device*> devicesList() const;
 };
 
 #endif // DBMANAGER_H

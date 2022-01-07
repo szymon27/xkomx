@@ -12,9 +12,9 @@ protected:
 public:
     CurrentUser(CurrentUser&) = delete;
     CurrentUser operator=(CurrentUser&) = delete;
-    static CurrentUser* getInstance();
+    static CurrentUser* instance();
     void setUser(User user);
-    User getUser() const;
+    User user() const;
 };
 
 #endif // CURRENTUSER_H

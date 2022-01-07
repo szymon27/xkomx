@@ -1,7 +1,7 @@
 #include "managerdevicewidget.h"
 #include "ui_managerdevicewidget.h"
 
-ManagerDeviceWidget::ManagerDeviceWidget(Device device, QWidget *parent) :
+ManagerDeviceWidget::ManagerDeviceWidget(Device* device, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ManagerDeviceWidget),
     m_device(device)
@@ -17,8 +17,8 @@ ManagerDeviceWidget::~ManagerDeviceWidget()
 
 void ManagerDeviceWidget::setControls()
 {
-    ui->lbImage->setPixmap(QPixmap::fromImage(m_device.m_image));
-    ui->lbProducer->setText(m_device.m_producer);
-    ui->lbModel->setText(m_device.m_model);
-    ui->lbType->setText(deviceTypeToString(m_device.m_deviceType));
+    ui->lbImage->setPixmap(QPixmap::fromImage(m_device->image()));
+    ui->lbProducer->setText(m_device->producer());
+    ui->lbModel->setText(m_device->model());
+    ui->lbType->setText(deviceTypeToString(m_device->deviceType()));
 }

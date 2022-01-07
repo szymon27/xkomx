@@ -14,10 +14,10 @@ ShipmentWidget::~ShipmentWidget()
 }
 
 void ShipmentWidget::setShipmentInfo(){
-    ui->leName->setText(CurrentUser::getInstance()->getUser().name());
-    ui->leSurname->setText(CurrentUser::getInstance()->getUser().surname());
-    ui->leCountry->setText(CurrentUser::getInstance()->getUser().country());
-    ui->lePostalCode->setText(CurrentUser::getInstance()->getUser().postCode());
-    ui->leAddress->setText(CurrentUser::getInstance()->getUser().address());
-    ui->leCity->setText(CurrentUser::getInstance()->getUser().city());
+    ui->leName->setText(CurrentUser::instance()->user().name());
+    ui->leSurname->setText(CurrentUser::instance()->user().surname());
+    ui->leCountry->setText(CurrentUser::instance()->user().country());
+    ui->lePostalCode->setText(CurrentUser::instance()->user().postCode());
+    ui->leAddress->setText(CurrentUser::instance()->user().address());
+    ui->leCity->setText(CurrentUser::instance()->user().city());
 }

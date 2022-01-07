@@ -4,8 +4,8 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     m_qSqlDatabase.open();
 }
 
@@ -15,7 +15,7 @@ DbManager::~DbManager() {
     delete s_instance;
 }
 
-DbManager* DbManager::getInstance() {
+DbManager* DbManager::instance() {
     if(s_instance == nullptr)
         s_instance = new DbManager();
     return s_instance;
@@ -80,9 +80,9 @@ bool DbManager::signUp(NewUser newUser) {
     return query.exec();
 }
 
-QVector<Device> DbManager::getDevicesList() const
+QVector<Device*> DbManager::devicesList() const
 {
-    QVector<Device> list;
+    QVector<Device*> list;
     QSqlQuery query;
     query.prepare("SELECT * FROM devices;");
     query.exec();
@@ -101,9 +101,13 @@ QVector<Device> DbManager::getDevicesList() const
         QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
         QImage image = imageReader.read();
 
+        switch(deviceType) {
+            case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
+            case DeviceType::Computer: list.append(new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description)); break;
+            case DeviceType::Mouse: list.append(new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description)); break;
+            case DeviceType::Keyboard: list.append(new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description)); break;
+        }
 
-        Device device(id, deviceType, producer, model, description, count, price, image, imageType);
-        list.append(device);
     }
     return list;
 }

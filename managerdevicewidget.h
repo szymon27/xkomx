@@ -14,12 +14,12 @@ class ManagerDeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ManagerDeviceWidget(Device, QWidget *parent = nullptr);
+    explicit ManagerDeviceWidget(Device*, QWidget *parent = nullptr);
     ~ManagerDeviceWidget();
 
 private:
     Ui::ManagerDeviceWidget *ui;
-    Device m_device;
+    Device* m_device = nullptr;
     void setControls();
 };
 

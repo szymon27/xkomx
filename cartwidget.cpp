@@ -20,7 +20,7 @@ void CartWidget::setUpWidget()
     while(ui->vlCart->count() > 0)
         delete ui->vlCart->takeAt(0);
 
-    QVector<Device> devices = DbManager::getInstance()->getDevicesList(); //Zmiana na koszyk usera
+    QVector<Device*> devices = DbManager::instance()->devicesList(); //Zmiana na koszyk usera
     for(int i = 0; i < devices.size(); i++) {
         CartDeviceWidget *deviceWidget = new CartDeviceWidget();
         deviceWidget->setCartDevice(devices.at(i));

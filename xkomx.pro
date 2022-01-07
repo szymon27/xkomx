@@ -12,17 +12,24 @@ SOURCES += \
     adminpanelwindow.cpp \
     cartdevicewidget.cpp \
     cartwidget.cpp \
+    computer.cpp \
     currentuser.cpp \
     dbmanager.cpp \
+    device.cpp \
     devicedetailswindow.cpp \
     devicetype.cpp \
     devicewidget.cpp \
+    displaytype.cpp \
     edituserwindow.cpp \
     imagetype.cpp \
+    keyboard.cpp \
+    keyboardtype.cpp \
     main.cpp \
     mainwidget.cpp \
     mainwindow.cpp \
     managerdevicewidget.cpp \
+    monitor.cpp \
+    mouse.cpp \
     shipmentwidget.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
@@ -34,17 +41,23 @@ HEADERS += \
     adminpanelwindow.h \
     cartdevicewidget.h \
     cartwidget.h \
+    computer.h \
     currentuser.h \
     dbmanager.h \
     device.h \
     devicedetailswindow.h \
     devicetype.h \
     devicewidget.h \
+    displaytype.h \
     edituserwindow.h \
     imagetype.h \
+    keyboard.h \
+    keyboardtype.h \
     mainwidget.h \
     mainwindow.h \
     managerdevicewidget.h \
+    monitor.h \
+    mouse.h \
     newuser.h \
     shipmentwidget.h \
     signinwindow.h \

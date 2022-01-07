@@ -15,16 +15,16 @@ class DeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit DeviceWidget(Device device, QWidget *parent = nullptr);
+    explicit DeviceWidget(Device* device, QWidget *parent = nullptr);
     ~DeviceWidget();
-    void setDevice(Device device);
-    Device getDevice(){return m_device;}
+    void setDevice(Device* device);
+    Device* device(){return m_device;}
 
 private slots:
     void on_btnDetails_clicked();
 
 private:
-    Device m_device;
+    Device* m_device = nullptr;
     void setControls();
     Ui::DeviceWidget *ui;
 };

@@ -20,10 +20,10 @@ void SignInWindow::on_btnSignIn_clicked()
 
     // ########## walidacja
 
-    User user = DbManager::getInstance()->signIn(username, password);
-    CurrentUser::getInstance()->setUser(user);
+    User user = DbManager::instance()->signIn(username, password);
+    CurrentUser::instance()->setUser(user);
 
-    if(CurrentUser::getInstance()->getUser().getUserType() != UserType::Guest)
+    if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
         close();
 }
 
@@ -34,7 +34,7 @@ void SignInWindow::on_btnSignUp_clicked()
     signUpWindow->exec();
     delete signUpWindow;
 
-    if(CurrentUser::getInstance()->getUser().getUserType() != UserType::Guest)
+    if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
         close();
 }
 

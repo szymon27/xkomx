@@ -13,11 +13,11 @@ class DeviceDetailsWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit DeviceDetailsWindow(Device, QWidget *parent = nullptr);
+    explicit DeviceDetailsWindow(Device* device, QWidget *parent = nullptr);
     ~DeviceDetailsWindow();
 
 private:
-    Device m_device;
+    Device* m_device = nullptr;
     Ui::DeviceDetailsWindow *ui;
     void setControls();
 };

@@ -36,9 +36,9 @@ void SignUpWindow::on_btnSignUp_clicked()
     newUser.address = address;
     newUser.country = country;
 
-    if(DbManager::getInstance()->signUp(newUser)) {
-        User user = DbManager::getInstance()->signIn(username, password);
-        CurrentUser::getInstance()->setUser(user);
+    if(DbManager::instance()->signUp(newUser)) {
+        User user = DbManager::instance()->signIn(username, password);
+        CurrentUser::instance()->setUser(user);
         close();
     }
 
