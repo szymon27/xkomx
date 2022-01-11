@@ -4,8 +4,9 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao_proj\\xkomx.db");
     m_qSqlDatabase.open();
 }
 
@@ -25,7 +26,6 @@ User DbManager::signIn(QString username, QString password) {
     User user = User();
 
     QSqlQuery query;
-    //id, user_type_id, username, password, name, surname, address, post_code, city, country
     query.prepare("SELECT * FROM users WHERE username LIKE :username AND password LIKE :password;");
     query.bindValue(":username", QVariant(username));
     query.bindValue(":password", QVariant(password));
@@ -80,8 +80,7 @@ bool DbManager::signUp(NewUser newUser) {
     return query.exec();
 }
 
-QVector<Device*> DbManager::devicesList() const
-{
+QVector<Device*> DbManager::devicesList() const {
     QVector<Device*> list;
     QSqlQuery query;
     query.prepare("SELECT * FROM devices;");
@@ -111,4 +110,3 @@ QVector<Device*> DbManager::devicesList() const
     }
     return list;
 }
-

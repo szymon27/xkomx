@@ -13,54 +13,54 @@ Computer::Computer(int id, DeviceType deviceType, QString producer, QString mode
     m_system = qJsonObject.value("system").toString();
 }
 
-const QString &Computer::processor() const
+const QString Computer::processor() const
 {
     return m_processor;
 }
 
-void Computer::setProcessor(const QString &newProcessor)
+void Computer::setProcessor(QString processor)
 {
-    m_processor = newProcessor;
+    m_processor = processor;
 }
 
-const QString &Computer::ram() const
+const QString Computer::ram() const
 {
     return m_ram;
 }
 
-void Computer::setRam(const QString &newRam)
+void Computer::setRam(const QString ram)
 {
-    m_ram = newRam;
+    m_ram = ram;
 }
 
-const QString &Computer::graphicsCard() const
+const QString Computer::graphicsCard() const
 {
     return m_graphicsCard;
 }
 
-void Computer::setGraphicsCard(const QString &newGraphicsCard)
+void Computer::setGraphicsCard(QString graphicsCard)
 {
-    m_graphicsCard = newGraphicsCard;
+    m_graphicsCard = graphicsCard;
 }
 
-const QString &Computer::disc() const
+const QString Computer::disc() const
 {
     return m_disc;
 }
 
-void Computer::setDisc(const QString &newDisc)
+void Computer::setDisc(QString disc)
 {
-    m_disc = newDisc;
+    m_disc = disc;
 }
 
-const QString &Computer::powerSupply() const
+const QString Computer::powerSupply() const
 {
     return m_powerSupply;
 }
 
-void Computer::setPowerSupply(const QString &newPowerSupply)
+void Computer::setPowerSupply(QString powerSupply)
 {
-    m_powerSupply = newPowerSupply;
+    m_powerSupply = powerSupply;
 }
 
 QString Computer::description()

@@ -5,6 +5,7 @@
 #include "device.h"
 #include "devicetype.h"
 #include "devicedetailswindow.h"
+#include "cart.h"
 
 namespace Ui {
 class DeviceWidget;
@@ -22,6 +23,8 @@ public:
 
 private slots:
     void on_btnDetails_clicked();
+
+    void on_btnAddToCart_clicked();
 
 private:
     Device* m_device = nullptr;

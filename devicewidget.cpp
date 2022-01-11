@@ -35,3 +35,9 @@ void DeviceWidget::on_btnDetails_clicked()
     delete window;
 }
 
+
+void DeviceWidget::on_btnAddToCart_clicked()
+{
+    Cart::instance()->addDevice(m_device);
+}
+

@@ -5,9 +5,9 @@ int Device::id() const
     return m_id;
 }
 
-void Device::setId(int newId)
+void Device::setId(int id)
 {
-    m_id = newId;
+    m_id = id;
 }
 
 DeviceType Device::deviceType() const
@@ -15,29 +15,29 @@ DeviceType Device::deviceType() const
     return m_deviceType;
 }
 
-void Device::setDeviceType(DeviceType newDeviceType)
+void Device::setDeviceType(DeviceType deviceType)
 {
-    m_deviceType = newDeviceType;
+    m_deviceType = deviceType;
 }
 
-const QString &Device::producer() const
+const QString Device::producer() const
 {
     return m_producer;
 }
 
-void Device::setProducer(const QString &newProducer)
+void Device::setProducer(QString producer)
 {
-    m_producer = newProducer;
+    m_producer = producer;
 }
 
-const QString &Device::model() const
+const QString Device::model() const
 {
     return m_model;
 }
 
-void Device::setModel(const QString &newModel)
+void Device::setModel(QString model)
 {
-    m_model = newModel;
+    m_model = model;
 }
 
 int Device::count() const
@@ -45,9 +45,9 @@ int Device::count() const
     return m_count;
 }
 
-void Device::setCount(int newCount)
+void Device::setCount(int count)
 {
-    m_count = newCount;
+    m_count = count;
 }
 
 double Device::price() const
@@ -55,19 +55,19 @@ double Device::price() const
     return m_price;
 }
 
-void Device::setPrice(double newPrice)
+void Device::setPrice(double price)
 {
-    m_price = newPrice;
+    m_price = price;
 }
 
-const QImage &Device::image() const
+const QImage Device::image() const
 {
     return m_image;
 }
 
-void Device::setImage(const QImage &newImage)
+void Device::setImage(QImage image)
 {
-    m_image = newImage;
+    m_image = image;
 }
 
 ImageType Device::imageType() const
@@ -75,9 +75,9 @@ ImageType Device::imageType() const
     return m_imageType;
 }
 
-void Device::setImageType(ImageType newImageType)
+void Device::setImageType(ImageType imageType)
 {
-    m_imageType = newImageType;
+    m_imageType = imageType;
 }
 
 Device::Device(int id, DeviceType deviceType, QString producer, QString model,

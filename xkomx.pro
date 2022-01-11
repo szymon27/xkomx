@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     adminpanelwindow.cpp \
+    cart.cpp \
     cartdevicewidget.cpp \
     cartwidget.cpp \
     computer.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
 
 HEADERS += \
     adminpanelwindow.h \
+    cart.h \
     cartdevicewidget.h \
     cartwidget.h \
     computer.h \

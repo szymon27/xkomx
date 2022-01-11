@@ -24,21 +24,21 @@ public:
     Device(int id, DeviceType deviceType, QString producer, QString model,
            int count, double price, QImage image, ImageType imageType);
     int id() const;
-    void setId(int newId);
+    void setId(int id);
     DeviceType deviceType() const;
-    void setDeviceType(DeviceType newDeviceType);
-    const QString &producer() const;
-    void setProducer(const QString &newProducer);
-    const QString &model() const;
-    void setModel(const QString &newModel);
+    void setDeviceType(DeviceType deviceType);
+    const QString producer() const;
+    void setProducer(const QString producer);
+    const QString model() const;
+    void setModel(const QString model);
     int count() const;
-    void setCount(int newCount);
+    void setCount(int count);
     double price() const;
-    void setPrice(double newPrice);
-    const QImage &image() const;
-    void setImage(const QImage &newImage);
+    void setPrice(double price);
+    const QImage image() const;
+    void setImage(const QImage image);
     ImageType imageType() const;
-    void setImageType(ImageType newImageType);
+    void setImageType(ImageType imageType);
     virtual QString description() = 0;
 };
 

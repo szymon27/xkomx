@@ -17,16 +17,17 @@ public:
     Computer(int id, DeviceType deviceType, QString producer, QString model,
             int count, double price, QImage image, ImageType imageType,
             QString description);
-    const QString &processor() const;
-    void setProcessor(const QString &newProcessor);
-    const QString &ram() const;
-    void setRam(const QString &newRam);
-    const QString &graphicsCard() const;
-    void setGraphicsCard(const QString &newGraphicsCard);
-    const QString &disc() const;
-    void setDisc(const QString &newDisc);
-    const QString &powerSupply() const;
-    void setPowerSupply(const QString &newPowerSupply);
+
+    const QString processor() const;
+    void setProcessor(const QString processor);
+    const QString ram() const;
+    void setRam(const QString ram);
+    const QString graphicsCard() const;
+    void setGraphicsCard(const QString graphicsCard);
+    const QString disc() const;
+    void setDisc(const QString disc);
+    const QString powerSupply() const;
+    void setPowerSupply(const QString powerSupply);
     virtual QString description() override;
 };
 

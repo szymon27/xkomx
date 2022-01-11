@@ -5,6 +5,7 @@
 #include "DbManager.h"
 #include "cartdevicewidget.h"
 #include "shipmentwidget.h"
+#include "cart.h"
 
 namespace Ui {
 class CartWidget;
