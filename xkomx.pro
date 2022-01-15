@@ -17,7 +17,6 @@ SOURCES += \
     currentuser.cpp \
     dbmanager.cpp \
     device.cpp \
-    devicedetailswindow.cpp \
     devicetype.cpp \
     devicewidget.cpp \
     displaytype.cpp \
@@ -47,7 +46,6 @@ HEADERS += \
     currentuser.h \
     dbmanager.h \
     device.h \
-    devicedetailswindow.h \
     devicetype.h \
     devicewidget.h \
     displaytype.h \
@@ -72,7 +70,6 @@ FORMS += \
     adminpanelwindow.ui \
     cartdevicewidget.ui \
     cartwidget.ui \
-    devicedetailswindow.ui \
     devicewidget.ui \
     edituserwindow.ui \
     mainwidget.ui \

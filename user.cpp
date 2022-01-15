@@ -100,3 +100,7 @@ UserType User::userType() const
 {
     return m_userType;
 }
+
+int User::id() const {
+    return m_id;
+}

@@ -4,8 +4,8 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao_proj\\xkomx.db");
     m_qSqlDatabase.open();
 }
@@ -109,4 +109,81 @@ QVector<Device*> DbManager::devicesList() const {
 
     }
     return list;
+}
+
+Device *DbManager::getDeviceById(int id)
+{
+    Device* device = nullptr;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM devices WHERE id=:id;");
+    query.bindValue(":id", QVariant(id));
+    query.exec();
+    if(query.exec() && query.next()) {
+        DeviceType deviceType = (DeviceType)query.value(1).toInt();
+        QString producer = query.value(2).toString();
+        QString model = query.value(3).toString();
+        QString description = query.value(4).toString();
+        int count = query.value(5).toInt();
+        double price = query.value(6).toDouble();
+        QByteArray byteArray = query.value(7).toByteArray();
+        ImageType imageType = (ImageType)query.value(8).toInt();
+        QBuffer buffer(&byteArray);
+        buffer.open(QIODevice::ReadOnly);
+        QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
+        QImage image = imageReader.read();
+
+        switch(deviceType) {
+            case DeviceType::Monitor: return new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description);
+            case DeviceType::Computer: return new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description);
+            case DeviceType::Mouse: return new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description);
+            case DeviceType::Keyboard: return new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description);
+        }
+    }
+    return device;
+}
+
+bool DbManager::order(QString username, QString password)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id, balance FROM bank WHERE username LIKE :username AND password LIKE :password;");
+    query.bindValue(":username", QVariant(username));
+    query.bindValue(":password", QVariant(password));
+
+    if(query.exec() && query.next()) {
+        int bankId = query.value(0).toInt();
+        double balance = query.value(1).toDouble();
+        double dif = balance - Cart::instance()->sum();
+        if(dif >= 0) {
+            query.prepare("UPDATE bank SET balance=:dif WHERE id=:id;");
+            query.bindValue(":dif", QVariant(dif));
+            query.bindValue(":id", QVariant(bankId));
+            query.exec();
+            query.prepare("SELECT MAX(id) FROM orders;");
+            if(query.exec() && query.next()) {
+                int lastId = query.value(0).toInt();
+                query.prepare("INSERT INTO orders VALUES(:id, :user_id, :bank_id, :price, :date);");
+                query.bindValue(":id", QVariant(lastId + 1));
+                query.bindValue(":user_id", QVariant(CurrentUser::instance()->user().id()));
+                query.bindValue(":bank_id", QVariant(bankId));
+                query.bindValue(":price", QVariant(Cart::instance()->sum()));
+                query.bindValue(":date", QVariant(QDateTime::currentDateTime().date()));
+                query.exec();
+                QVector<CartElement> list = Cart::instance()->cartList();
+                for(int i = 0; i < list.size(); i++) {
+                    query.prepare("INSERT INTO order_details VALUES(:order_id, :device_id, :device_count, :device_price);");
+                    query.bindValue(":order_id", QVariant(lastId + 1));
+                    query.bindValue(":device_id", QVariant(list[i].device->id()));
+                    query.bindValue(":device_count", QVariant(list[i].count));
+                    query.bindValue(":device_price", QVariant(list[i].device->price()));
+                    query.exec();
+                    query.prepare("UPDATE devices SET count=:count WHERE id=:device_id;");
+                    query.bindValue(":count", QVariant(list[i].device->count() - list[i].count));
+                    query.bindValue(":device_id", QVariant(list[i].device->id()));
+                    query.exec();
+                }
+                return true;
+            }
+        }
+    }
+    return false;
 }

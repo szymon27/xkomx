@@ -28,13 +28,6 @@ void DeviceWidget::setDevice(Device* device)
     m_device = device;
 }
 
-void DeviceWidget::on_btnDetails_clicked()
-{
-    DeviceDetailsWindow *window = new DeviceDetailsWindow(m_device);
-    window->exec();
-    delete window;
-}
-
 
 void DeviceWidget::on_btnAddToCart_clicked()
 {

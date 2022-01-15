@@ -15,6 +15,9 @@
 #include "computer.h"
 #include "mouse.h"
 #include "keyboard.h"
+#include "cart.h"
+#include "currentuser.h"
+#include <QDateTime>
 
 class DbManager
 {
@@ -34,6 +37,9 @@ public:
     bool signUp(NewUser user);
 
     QVector<Device*> devicesList() const;
+    Device *getDeviceById(int id);
+
+    bool order(QString username, QString password);
 };
 
 #endif // DBMANAGER_H

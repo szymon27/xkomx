@@ -106,7 +106,6 @@
        <property name="font">
         <font>
          <pointsize>12</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -130,13 +129,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnDetails">
-       <property name="text">
-        <string>Details</string>
-       </property>
-      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnAddToCart">

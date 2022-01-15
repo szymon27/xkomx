@@ -4,7 +4,6 @@
 #include <QWidget>
 #include "device.h"
 #include "devicetype.h"
-#include "devicedetailswindow.h"
 #include "cart.h"
 
 namespace Ui {
@@ -22,8 +21,6 @@ public:
     Device* device(){return m_device;}
 
 private slots:
-    void on_btnDetails_clicked();
-
     void on_btnAddToCart_clicked();
 
 private:

@@ -1,11 +1,19 @@
 #include "cartdevicewidget.h"
 #include "ui_cartdevicewidget.h"
 
-CartDeviceWidget::CartDeviceWidget(QWidget *parent) :
+CartDeviceWidget::CartDeviceWidget(CartElement cartElement, QWidget *parent) :
+    m_cartElement(cartElement),
     QWidget(parent),
     ui(new Ui::CartDeviceWidget)
 {
     ui->setupUi(this);
+    ui->sbxQuantity->setMaximum(cartElement.device->count());
+    ui->sbxQuantity->setValue(cartElement.count); //zmiana na ilosc w koszyku z bazy
+    ui->lbProducer->setText(cartElement.device->producer());
+    ui->lbModel->setText(cartElement.device->model());
+    ui->lbPrice->setText(QString::number(cartElement.device->price()));
+    ui->lbImage->setPixmap(QPixmap::fromImage(cartElement.device->image()));
+    ui->lbTotalPrice->setText(QString::number(cartElement.device->price() * cartElement.count * 1)); // zmiana na sbxQuantity.getValue()
 }
 
 CartDeviceWidget::~CartDeviceWidget()
@@ -13,12 +21,17 @@ CartDeviceWidget::~CartDeviceWidget()
     delete ui;
 }
 
-void CartDeviceWidget::setCartDevice(Device* device)
+void CartDeviceWidget::on_sbxQuantity_valueChanged(int count)
 {
-    ui->sbxQuantity->setValue(1); //zmiana na ilosc w koszyku z bazy
-    ui->lbProducer->setText(device->producer());
-    ui->lbModel->setText(device->model());
-    ui->lbPrice->setText(QString::number(device->price()));
-    ui->lbImage->setPixmap(QPixmap::fromImage(device->image()));
-    ui->lbTotalPrice->setText(QString::number(device->price() * 1)); // zmiana na sbxQuantity.getValue()
+    Cart::instance()->setCountOfCartElement(m_cartElement.device->id(), count);
+    ui->lbTotalPrice->setText(QString::number(m_cartElement.device->price() * count * 1));
+    emit changePrice();
 }
+
+
+void CartDeviceWidget::on_pushButton_clicked()
+{
+    Cart::instance()->removeCartElementById(m_cartElement.device->id());
+    emit update();
+}
+

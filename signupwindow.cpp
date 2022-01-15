@@ -24,7 +24,8 @@ void SignUpWindow::on_btnSignUp_clicked()
     QString postCode = ui->lePostalCode->text();
     QString address = ui->leAddress->text();
     QString country = ui->leCountry->text();
-    //############ walidacja
+
+
 
     NewUser newUser;
     newUser.username = username;

@@ -25,6 +25,8 @@ void SignInWindow::on_btnSignIn_clicked()
 
     if(CurrentUser::instance()->user().userType() != UserType::Guest)
         close();
+    else
+        QMessageBox::warning(this, "XKOMX", "niepoprawne dane");
 }
 
 

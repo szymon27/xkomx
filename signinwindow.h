@@ -6,6 +6,7 @@
 #include "currentuser.h"
 #include "signupwindow.h"
 #include "dbmanager.h"
+#include <QMessageBox>
 
 namespace Ui {
 class SignInWindow;

@@ -2,7 +2,7 @@
 #define CARTDEVICEWIDGET_H
 
 #include <QWidget>
-#include <device.h>
+#include <cart.h>
 namespace Ui {
 class CartDeviceWidget;
 }
@@ -12,12 +12,19 @@ class CartDeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CartDeviceWidget(QWidget *parent = nullptr);
+    explicit CartDeviceWidget(CartElement cartElement, QWidget *parent = nullptr);
     ~CartDeviceWidget();
-    void setCartDevice(Device* device);
+signals:
+    void update();
+    void changePrice();
+private slots:
+    void on_sbxQuantity_valueChanged(int count);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::CartDeviceWidget *ui;
+    CartElement m_cartElement;
 };
 
 #endif // CARTDEVICEWIDGET_H

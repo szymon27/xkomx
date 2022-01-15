@@ -2,10 +2,13 @@
 #define CARTWIDGET_H
 
 #include <QWidget>
-#include "DbManager.h"
+#include "dbmanager.h"
 #include "cartdevicewidget.h"
 #include "cart.h"
 #include "orderdetailswindow.h"
+#include "currentuser.h"
+#include "signinwindow.h"
+#include <QMessageBox>
 
 namespace Ui {
 class CartWidget;
@@ -21,7 +24,9 @@ public:
     void setUpWidget();
 private slots:
     void on_btnBuy_clicked();
-
+    void update();
+    void on_btnRemoveAll_clicked();
+    void setPrice();
 private:
     Ui::CartWidget *ui;
 };
