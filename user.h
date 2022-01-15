@@ -23,9 +23,9 @@ public:
     User(int id, UserType userType, QString username, QString password, QString name,
          QString surname, QString address, QString postCode, QString city, QString country);
 
-    const int id() const;
+    int id() const;
     const QString username() const;
-    const UserType userType() const;
+    UserType userType() const;
     const QString name() const;
     const QString surname() const;
     const QString address() const;

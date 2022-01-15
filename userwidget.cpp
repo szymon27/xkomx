@@ -16,8 +16,8 @@ UserWidget::~UserWidget()
 
 void UserWidget::setControls()
 {
-    ui->lbUsername->setText(m_user.getUsername());
+    ui->lbUsername->setText(m_user.username());
     ui->lbName->setText(m_user.name());
     ui->lbSurname->setText(m_user.surname());
-    ui->lbType->setText(userTypeToString(m_user.getUserType()));
+    ui->lbType->setText(userTypeToString(m_user.userType()));
 }

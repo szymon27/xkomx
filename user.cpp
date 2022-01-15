@@ -1,83 +1,83 @@
 #include "user.h"
 
-const QString &User::name() const
+const QString User::name() const
 {
     return m_name;
 }
 
-const QString &User::surname() const
+const QString User::surname() const
 {
     return m_surname;
 }
 
-const QString &User::address() const
+const QString User::address() const
 {
     return m_address;
 }
 
-const QString &User::postCode() const
+const QString User::postCode() const
 {
     return m_postCode;
 }
 
-const QString &User::city() const
+const QString User::city() const
 {
     return m_city;
 }
 
-const QString &User::country() const
+const QString User::country() const
 {
     return m_country;
 }
 
-void User::setId(int newId)
+void User::setId(int id)
 {
-    m_id = newId;
+    m_id = id;
 }
 
-void User::setUserType(UserType newUserType)
+void User::setUserType(UserType userType)
 {
-    m_userType = newUserType;
+    m_userType = userType;
 }
 
-void User::setUsername(const QString &newUsername)
+void User::setUsername(const QString username)
 {
-    m_username = newUsername;
+    m_username = username;
 }
 
-void User::setPassword(const QString &newPassword)
+void User::setPassword(const QString password)
 {
-    m_password = newPassword;
+    m_password = password;
 }
 
-void User::setName(const QString &newName)
+void User::setName(const QString name)
 {
-    m_name = newName;
+    m_name = name;
 }
 
-void User::setSurname(const QString &newSurname)
+void User::setSurname(const QString surname)
 {
-    m_surname = newSurname;
+    m_surname = surname;
 }
 
-void User::setAddress(const QString &newAddress)
+void User::setAddress(const QString address)
 {
-    m_address = newAddress;
+    m_address = address;
 }
 
-void User::setPostCode(const QString &newPostCode)
+void User::setPostCode(const QString postCode)
 {
-    m_postCode = newPostCode;
+    m_postCode = postCode;
 }
 
-void User::setCity(const QString &newCity)
+void User::setCity(const QString city)
 {
-    m_city = newCity;
+    m_city = city;
 }
 
-void User::setCountry(const QString &newCountry)
+void User::setCountry(const QString country)
 {
-    m_country = newCountry;
+    m_country = country;
 }
 
 User::User()
@@ -90,3 +90,13 @@ User::User(int id, UserType userType, QString username, QString password, QStrin
     :m_id(id), m_userType(userType), m_username(username), m_password(password), m_name(name),
       m_surname(surname), m_address(address), m_postCode(postCode), m_city(city), m_country(country)
 {}
+
+const QString User::username() const
+{
+    return m_username;
+}
+
+UserType User::userType() const
+{
+    return m_userType;
+}

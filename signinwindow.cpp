@@ -23,7 +23,7 @@ void SignInWindow::on_btnSignIn_clicked()
     User user = DbManager::instance()->signIn(username, password);
     CurrentUser::instance()->setUser(user);
 
-    if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
+    if(CurrentUser::instance()->user().userType() != UserType::Guest)
         close();
 }
 
@@ -34,7 +34,7 @@ void SignInWindow::on_btnSignUp_clicked()
     signUpWindow->exec();
     delete signUpWindow;
 
-    if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
+    if(CurrentUser::instance()->user().userType() != UserType::Guest)
         close();
 }
 

@@ -15,12 +15,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnSignIn_clicked()
 {
-    if(CurrentUser::instance()->user().getUserType() == UserType::Guest) {
+    if(CurrentUser::instance()->user().userType() == UserType::Guest) {
         SignInWindow* signInWindow = new SignInWindow(this);
         signInWindow->exec();
         delete signInWindow;
 
-        if(CurrentUser::instance()->user().getUserType() != UserType::Guest)
+        if(CurrentUser::instance()->user().userType() != UserType::Guest)
             ui->btnSignIn->setText("Sign out");
         return;
     }
