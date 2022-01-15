@@ -5,6 +5,8 @@
 #include "newuser.h"
 #include "dbmanager.h"
 #include "currentuser.h"
+#include "QMessageBox"
+#include "QRegExp"
 
 namespace Ui {
 class SignUpWindow;
