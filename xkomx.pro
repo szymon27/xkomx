@@ -31,7 +31,7 @@ SOURCES += \
     managerdevicewidget.cpp \
     monitor.cpp \
     mouse.cpp \
-    shipmentwidget.cpp \
+    orderdetailswindow.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
     user.cpp \
@@ -61,7 +61,7 @@ HEADERS += \
     monitor.h \
     mouse.h \
     newuser.h \
-    shipmentwidget.h \
+    orderdetailswindow.h \
     signinwindow.h \
     signupwindow.h \
     user.h \
@@ -78,7 +78,7 @@ FORMS += \
     mainwidget.ui \
     mainwindow.ui \
     managerdevicewidget.ui \
-    shipmentwidget.ui \
+    orderdetailswindow.ui \
     signinwindow.ui \
     signupwindow.ui \
     userwidget.ui

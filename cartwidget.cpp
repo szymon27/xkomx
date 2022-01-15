@@ -30,14 +30,8 @@ void CartWidget::setUpWidget()
 
 void CartWidget::on_btnBuy_clicked()
 {
-    //QLayoutItem* item;
-    //while ( ( item = ui->vlCart->takeAt( 0 ) ) != NULL )
-    //{
-    //    delete item->widget();
-    //    delete item;
-    //}
-    //ShipmentWidget *shipmentWidget = new ShipmentWidget();
-    //shipmentWidget->setShipmentInfo();
-    //ui->vlCart->addWidget(shipmentWidget);
+    OrderDetailsWindow *window = new OrderDetailsWindow();
+    window->exec();
+    delete window;
 }
 

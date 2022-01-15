@@ -4,8 +4,8 @@
 #include <QWidget>
 #include "DbManager.h"
 #include "cartdevicewidget.h"
-#include "shipmentwidget.h"
 #include "cart.h"
+#include "orderdetailswindow.h"
 
 namespace Ui {
 class CartWidget;
