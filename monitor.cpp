@@ -53,6 +53,6 @@ void Monitor::setDisplayType(DisplayType newDisplayType)
 
 QString Monitor::description()
 {
-    return QString("refresh rate: %1\nscreen size: %2\nresolution: %3\ndisplay type: %4")
+    return QString(Device::description()) + QString("refresh rate: %1\nscreen size: %2\nresolution: %3\ndisplay type: %4")
             .arg(QString::number(m_refreshRate), QString::number(m_screenSize), m_resolution, displayTypeToString(m_displayType));
 }

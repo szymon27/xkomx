@@ -53,6 +53,6 @@ void Keyboard::setNumpad(bool newNumpad)
 
 QString Keyboard::description()
 {
-    return QString("wireless: %1\nswitches: %2\nlighting: %3\nnumpad: %4")
+    return QString(Device::description()) + QString("wireless: %1\nswitches: %2\nlighting: %3\nnumpad: %4")
             .arg((m_wireless) ? "yes" : "no", keyboardTypeToString(m_keyboardType), (m_lighting) ? "yes" : "no", (m_numpad) ? "yes" : "no");
 }

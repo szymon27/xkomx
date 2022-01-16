@@ -126,6 +126,13 @@
     </layout>
    </item>
    <item>
+    <widget class="QPushButton" name="btnChangeInfo">
+     <property name="text">
+      <string>Change user information</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
       <widget class="QLabel" name="lbOldPass">
@@ -192,9 +199,16 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="btnConfirm">
+    <widget class="QPushButton" name="btnChangePassword">
      <property name="text">
-      <string>Confirm changes</string>
+      <string>Change password</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Purchase history</string>
      </property>
     </widget>
    </item>

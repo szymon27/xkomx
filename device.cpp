@@ -80,6 +80,12 @@ void Device::setImageType(ImageType imageType)
     m_imageType = imageType;
 }
 
+QString Device::description()
+{
+    return QString("%1 \nProducer: %2\nModel: %3\n")
+            .arg(deviceTypeToString(m_deviceType), m_producer, m_model);
+}
+
 Device::Device(int id, DeviceType deviceType, QString producer, QString model,
         int count, double price, QImage image, ImageType imageType)
     :m_id(id), m_deviceType(deviceType), m_producer(producer), m_model(model),

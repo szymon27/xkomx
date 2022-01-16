@@ -20,9 +20,10 @@ protected:
     QImage m_image;
     ImageType m_imageType;
 
-public:
     Device(int id, DeviceType deviceType, QString producer, QString model,
            int count, double price, QImage image, ImageType imageType);
+public:
+
     int id() const;
     void setId(int id);
     DeviceType deviceType() const;
@@ -39,7 +40,7 @@ public:
     void setImage(const QImage image);
     ImageType imageType() const;
     void setImageType(ImageType imageType);
-    virtual QString description() = 0;
+    virtual QString description();
 };
 
 #endif // DEVICE_H

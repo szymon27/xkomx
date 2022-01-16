@@ -15,24 +15,6 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="btnDevices">
-       <property name="text">
-        <string>Devices list</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnUseres">
-       <property name="text">
-        <string>Users list</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QScrollArea" name="saList">
@@ -45,7 +27,7 @@
           <x>0</x>
           <y>0</y>
           <width>556</width>
-          <height>416</height>
+          <height>445</height>
          </rect>
         </property>
         <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -77,6 +59,20 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="btnDevices">
+         <property name="text">
+          <string>Devices list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnUseres">
+         <property name="text">
+          <string>Users list</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">

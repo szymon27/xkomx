@@ -31,6 +31,10 @@ SOURCES += \
     monitor.cpp \
     mouse.cpp \
     orderdetailswindow.cpp \
+    orderhistorydetailswindow.cpp \
+    orderhistorydevicewidget.cpp \
+    orderhistorywidget.cpp \
+    orderhistorywindow.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
     user.cpp \
@@ -60,6 +64,10 @@ HEADERS += \
     mouse.h \
     newuser.h \
     orderdetailswindow.h \
+    orderhistorydetailswindow.h \
+    orderhistorydevicewidget.h \
+    orderhistorywidget.h \
+    orderhistorywindow.h \
     signinwindow.h \
     signupwindow.h \
     user.h \
@@ -76,6 +84,10 @@ FORMS += \
     mainwindow.ui \
     managerdevicewidget.ui \
     orderdetailswindow.ui \
+    orderhistorydetailswindow.ui \
+    orderhistorydevicewidget.ui \
+    orderhistorywidget.ui \
+    orderhistorywindow.ui \
     signinwindow.ui \
     signupwindow.ui \
     userwidget.ui

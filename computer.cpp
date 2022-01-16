@@ -65,6 +65,6 @@ void Computer::setPowerSupply(QString powerSupply)
 
 QString Computer::description()
 {
-    return QString("processor: %1\nram: %2\ngraphics card: %3\ndisc: %4\npower supply: %5")
+    return QString(Device::description()) + QString("processor: %1\nram: %2\ngraphics card: %3\ndisc: %4\npower supply: %5")
             .arg(m_processor, m_ram, m_graphicsCard, m_disc, m_powerSupply);
 }

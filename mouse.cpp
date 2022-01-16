@@ -42,6 +42,6 @@ void Mouse::setDpi(int newDpi)
 
 QString Mouse::description()
 {
-    return QString("wireless: %1\nkeys: %2\ndpi: %3")
+    return QString(Device::description()) + QString("wireless: %1\nkeys: %2\ndpi: %3")
             .arg((m_wireless) ? "yes" : "no", QString::number(m_keys), QString::number(m_dpi));
 }

@@ -26,7 +26,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>533</width>
+          <width>469</width>
           <height>471</height>
          </rect>
         </property>
@@ -80,6 +80,12 @@
        </item>
        <item>
         <widget class="QLabel" name="lbSum">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>14</pointsize>

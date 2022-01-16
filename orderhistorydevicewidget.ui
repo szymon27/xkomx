@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CartDeviceWidget</class>
- <widget class="QWidget" name="CartDeviceWidget">
+ <class>OrderHistoryDeviceWidget</class>
+ <widget class="QWidget" name="OrderHistoryDeviceWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -54,83 +54,66 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLabel" name="lbProducer">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
+      <widget class="QTextEdit" name="txtDetails">
+       <property name="autoFillBackground">
+        <bool>false</bool>
        </property>
-       <property name="text">
-        <string>Producer</string>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
        </property>
       </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lbModel">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Model</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lbPrice">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>$$$</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <widget class="QLabel" name="lbPrice">
+       <property name="minimumSize">
+        <size>
+         <width>122</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>122</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>XXXXXXX PLN</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLabel" name="lbPrice_">
+        <widget class="QLabel" name="lbQuantity_">
          <property name="minimumSize">
           <size>
-           <width>80</width>
+           <width>60</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
          <property name="text">
-          <string>Total Price:</string>
+          <string>Quantity:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -138,26 +121,21 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="lbTotalPrice">
+        <widget class="QLabel" name="lbQuantity">
          <property name="minimumSize">
           <size>
-           <width>90</width>
+           <width>60</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
          <property name="text">
-          <string>$$$</string>
+          <string>XX</string>
          </property>
         </widget>
        </item>
@@ -177,23 +155,23 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="lbQuantity">
+        <widget class="QLabel" name="lbTotalCost_">
          <property name="minimumSize">
           <size>
-           <width>90</width>
+           <width>60</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>90</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
          <property name="text">
-          <string>Quantity:</string>
+          <string>Total cost:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -201,38 +179,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="sbxQuantity">
+        <widget class="QLabel" name="lbTotalCost">
          <property name="minimumSize">
           <size>
-           <width>80</width>
+           <width>60</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
-         <property name="minimum">
-          <number>1</number>
+         <property name="text">
+          <string>XXXXX PLN</string>
          </property>
         </widget>
        </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="maximumSize">
-        <size>
-         <width>182</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Remove from cart</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>

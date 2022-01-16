@@ -2,16 +2,16 @@
 #include "ui_cartdevicewidget.h"
 
 CartDeviceWidget::CartDeviceWidget(CartElement cartElement, QWidget *parent) :
-    m_cartElement(cartElement),
     QWidget(parent),
-    ui(new Ui::CartDeviceWidget)
+    ui(new Ui::CartDeviceWidget),
+    m_cartElement(cartElement)
 {
     ui->setupUi(this);
     ui->sbxQuantity->setMaximum(cartElement.device->count());
     ui->sbxQuantity->setValue(cartElement.count); //zmiana na ilosc w koszyku z bazy
     ui->lbProducer->setText(cartElement.device->producer());
     ui->lbModel->setText(cartElement.device->model());
-    ui->lbPrice->setText(QString::number(cartElement.device->price()));
+    ui->lbPrice->setText(QString::number(cartElement.device->price()) + " PLN");
     ui->lbImage->setPixmap(QPixmap::fromImage(cartElement.device->image()));
     ui->lbTotalPrice->setText(QString::number(cartElement.device->price() * cartElement.count * 1)); // zmiana na sbxQuantity.getValue()
 }

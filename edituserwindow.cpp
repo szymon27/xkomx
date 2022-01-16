@@ -23,3 +23,11 @@ void EditUserWindow::setControls()
     ui->leAddress->setText(CurrentUser::instance()->user().address());
     ui->leCity->setText(CurrentUser::instance()->user().city());
 }
+
+void EditUserWindow::on_pushButton_clicked()
+{
+    OrderHistoryWindow *window = new OrderHistoryWindow();
+    window->exec();
+    delete window;
+}
+
