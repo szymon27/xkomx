@@ -32,6 +32,7 @@ public:
     const QString postCode() const;
     const QString city() const;
     const QString country() const;
+    const QString password() const;
     void setId(int id);
     void setUserType(UserType userType);
     void setUsername(QString username);

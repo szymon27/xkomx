@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>150</height>
+    <height>87</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>150</height>
+    <height>75</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>16777215</width>
-    <height>150</height>
+    <height>87</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -27,39 +27,18 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QLabel" name="lbImage">
-     <property name="minimumSize">
-      <size>
-       <width>130</width>
-       <height>130</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>130</width>
-       <height>130</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::Box</enum>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QTextEdit" name="txtDetails">
-       <property name="autoFillBackground">
-        <bool>false</bool>
+      <widget class="QLabel" name="lbProducer">
+       <property name="text">
+        <string>Producer</string>
        </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbModel">
+       <property name="text">
+        <string>Model</string>
        </property>
       </widget>
      </item>

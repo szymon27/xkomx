@@ -1,14 +1,15 @@
 #include "orderhistorydetailswindow.h"
 #include "ui_orderhistorydetailswindow.h"
-
-OrderHistoryDetailsWindow::OrderHistoryDetailsWindow(QWidget *parent) :
+#include <QtDebug>
+OrderHistoryDetailsWindow::OrderHistoryDetailsWindow(int id, QDate d, double p, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::OrderHistoryDetailsWindow)
 {
     ui->setupUi(this);
     ui->saDevices->takeWidget();
     ui->saDevices->setWidget(ui->verticalLayoutWidget_2);
-
+    ui->lbTotalCost->setText(QString::number(p) + " PLN");
+    ui->lbDate->setText(d.toString("dd.MM.yyyy"));
     QLayoutItem* item;
     while ( ( item = ui->vlDevices->takeAt( 0 ) ) != NULL )
     {
@@ -17,12 +18,12 @@ OrderHistoryDetailsWindow::OrderHistoryDetailsWindow(QWidget *parent) :
         item = nullptr;
     }
 
-    QVector<Device*> devices = DbManager::instance()->devicesList(); //tu trzeba liste urzadzen po id wczesniej wybranego zamowienia
+    QVector<OrderDetails> devices = DbManager::instance()->orderDevices(id);
+
     for(int i = 0; i < devices.size(); i++) {
-        OrderHistoryDeviceWidget *productWidget = new OrderHistoryDeviceWidget(); //tu jako argument devices[i] i w widgecie sie bedzie wypelnialo tak jak w deviceWidget
+        OrderHistoryDeviceWidget *productWidget = new OrderHistoryDeviceWidget(devices.at(i));
         ui->vlDevices->addWidget(productWidget);
     }
-    //jeszcze ustawienie daty i calkowitego kosztu poszczegolnych urzadzen i calego zamowienia(to tez z klasy order mozna)
 }
 
 OrderHistoryDetailsWindow::~OrderHistoryDetailsWindow()

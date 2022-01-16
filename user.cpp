@@ -30,6 +30,11 @@ const QString User::country() const
     return m_country;
 }
 
+const QString User::password() const
+{
+    return m_password;
+}
+
 void User::setId(int id)
 {
     m_id = id;

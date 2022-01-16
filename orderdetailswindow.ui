@@ -174,7 +174,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="leBankPassword"/>
+      <widget class="QLineEdit" name="leBankPassword">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

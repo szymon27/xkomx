@@ -31,7 +31,7 @@ void SignUpWindow::on_btnSignUp_clicked()
     QRegExp regPostalCode("\\d{2}-\\d{3}");
     QRegExp regPassword("[A-Za-z0-9_@#$%^&*!?]{6,16}");
     QRegExp regNameSurnameCityCountry("[A-Za-z]{3,}");
-    QRegExp regAddress("[A-Za-z0-9.]{4,}");
+    QRegExp regAddress("[A-Za-z0-9./ ]{4,}");
 
     if(!regUsername.exactMatch(username)){
         QMessageBox::warning(this, "XKOMX", "invalid username");

@@ -58,7 +58,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="lbDate">
        <property name="text">
         <string>XX.XX.XXXX</string>
        </property>

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "currentuser.h"
 #include "orderhistorywindow.h"
-
+#include <QMessageBox>
 namespace Ui {
 class EditUserWindow;
 }
@@ -19,6 +19,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_btnChangePassword_clicked();
+
+    void on_btnChangeInfo_clicked();
 
 private:
     Ui::EditUserWindow *ui;

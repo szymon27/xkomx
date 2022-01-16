@@ -14,7 +14,7 @@ class OrderHistoryDetailsWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit OrderHistoryDetailsWindow(QWidget *parent = nullptr);
+    explicit OrderHistoryDetailsWindow(int id, QDate data, double cost, QWidget *parent = nullptr);
     ~OrderHistoryDetailsWindow();
 
 private:

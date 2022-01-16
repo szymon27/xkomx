@@ -113,22 +113,40 @@ QVector<Device*> DbManager::devicesList() const {
     return list;
 }
 
-QVector<Order *> DbManager::currentUserOrders() const
+QVector<Order> DbManager::Orders() const
 {
-    QVector<Order*> list;
+    QVector<Order> list;
     QSqlQuery query;
     query.prepare("SELECT * FROM orders WHERE user_id = :user_id;");
     query.bindValue(":user_id", QVariant(CurrentUser::instance()->user().id()));
     query.exec();
     while(query.next()){
         int id = query.value(0).toInt();
-        QDate date = query.value(1).toDate();
-        double totalCost = query.value(2).toDouble();
+        double totalCost = query.value(3).toDouble();
+        QDate date = query.value(4).toDate();
 
-        list.append(new Order(id, date, totalCost));
+        list.append(Order(id, date, totalCost));
     }
     return list;
 }
+
+QVector<OrderDetails> DbManager::orderDevices(int oid) const
+{
+    QVector<OrderDetails> list;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM order_details WHERE order_id=:orderId;");
+    query.bindValue(":orderId", QVariant(oid));
+    query.exec();
+    while(query.next()){
+        int count = query.value(1).toInt();
+        double price = query.value(2).toDouble();
+        QString model = query.value(3).toString();
+        QString producer = query.value(3).toString();
+        list.append(OrderDetails(count, price, model, producer));
+    }
+    return list;
+}
+
 
 Device *DbManager::getDeviceById(int id)
 {
@@ -161,6 +179,30 @@ Device *DbManager::getDeviceById(int id)
     return device;
 }
 
+bool DbManager::newPassword(QString newpass)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE users SET password =:newpass WHERE id=:uid;");
+    query.bindValue(":newpass", QVariant(newpass));
+    query.bindValue(":uid", QVariant(CurrentUser::instance()->user().id()));
+    return query.exec();
+}
+
+bool DbManager::changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE users SET name=:name, surname=:surname, city=:city, post_code=:postCode, address=:address, country=:country WHERE id=:uid;");
+    query.bindValue(":name", QVariant(name));
+    query.bindValue(":surname", QVariant(surname));
+    query.bindValue(":address", QVariant(address));
+    query.bindValue(":postCode", QVariant(postcode));
+    query.bindValue(":city", QVariant(city));
+    query.bindValue(":country", QVariant(country));
+    query.bindValue(":uid", QVariant(CurrentUser::instance()->user().id()));
+
+    return query.exec();
+}
+
 bool DbManager::order(QString username, QString password)
 {
     QSqlQuery query;
@@ -189,11 +231,12 @@ bool DbManager::order(QString username, QString password)
                 query.exec();
                 QVector<CartElement> list = Cart::instance()->cartList();
                 for(int i = 0; i < list.size(); i++) {
-                    query.prepare("INSERT INTO order_details VALUES(:order_id, :device_id, :device_count, :device_price);");
+                    query.prepare("INSERT INTO order_details VALUES(:order_id, :device_count, :device_price, :model, :producer);");
                     query.bindValue(":order_id", QVariant(lastId + 1));
-                    query.bindValue(":device_id", QVariant(list[i].device->id()));
                     query.bindValue(":device_count", QVariant(list[i].count));
                     query.bindValue(":device_price", QVariant(list[i].device->price()));
+                    query.bindValue(":model", QVariant(list[i].device->model()));
+                    query.bindValue(":producer", QVariant(list[i].device->producer()));
                     query.exec();
                     query.prepare("UPDATE devices SET count=:count WHERE id=:device_id;");
                     query.bindValue(":count", QVariant(list[i].device->count() - list[i].count));

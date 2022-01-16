@@ -38,8 +38,11 @@ public:
     bool signUp(NewUser user);
 
     QVector<Device*> devicesList() const;
-    QVector<Order*> currentUserOrders()const;
+    QVector<Order> Orders() const;
+    QVector<OrderDetails> orderDevices(int) const;
     Device *getDeviceById(int id);
+    bool newPassword(QString newpass);
+    bool changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country);
 
     bool order(QString username, QString password);
 };

@@ -13,7 +13,7 @@ class OrderHistoryWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OrderHistoryWidget(Order*, QWidget *parent = nullptr);
+    explicit OrderHistoryWidget(Order order, QWidget *parent = nullptr);
     ~OrderHistoryWidget();
 
 private slots:
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::OrderHistoryWidget *ui;
-    Order * m_order;
+    Order m_order;
 };
 
 #endif // ORDERHISTORYWIDGET_H

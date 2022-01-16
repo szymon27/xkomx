@@ -2,6 +2,8 @@
 #define ORDERHISTORYDEVICEWIDGET_H
 
 #include <QWidget>
+#include "device.h"
+#include "order.h"
 
 namespace Ui {
 class OrderHistoryDeviceWidget;
@@ -12,7 +14,7 @@ class OrderHistoryDeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit OrderHistoryDeviceWidget(QWidget *parent = nullptr);
+    explicit OrderHistoryDeviceWidget(OrderDetails orderDetails, QWidget *parent = nullptr);
     ~OrderHistoryDeviceWidget();
 
 private:
