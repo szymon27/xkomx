@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "dbmanager.h"
 #include "orderhistorywidget.h"
+#include "order.h"
 
 namespace Ui {
 class OrderHistoryWindow;

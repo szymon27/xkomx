@@ -17,6 +17,7 @@
 #include "keyboard.h"
 #include "cart.h"
 #include "currentuser.h"
+#include "order.h"
 #include <QDateTime>
 
 class DbManager
@@ -37,6 +38,7 @@ public:
     bool signUp(NewUser user);
 
     QVector<Device*> devicesList() const;
+    QVector<Order*> currentUserOrders()const;
     Device *getDeviceById(int id);
 
     bool order(QString username, QString password);

@@ -30,6 +30,7 @@ SOURCES += \
     managerdevicewidget.cpp \
     monitor.cpp \
     mouse.cpp \
+    order.cpp \
     orderdetailswindow.cpp \
     orderhistorydetailswindow.cpp \
     orderhistorydevicewidget.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
     monitor.h \
     mouse.h \
     newuser.h \
+    order.h \
     orderdetailswindow.h \
     orderhistorydetailswindow.h \
     orderhistorydevicewidget.h \

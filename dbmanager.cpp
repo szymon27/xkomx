@@ -113,6 +113,23 @@ QVector<Device*> DbManager::devicesList() const {
     return list;
 }
 
+QVector<Order *> DbManager::currentUserOrders() const
+{
+    QVector<Order*> list;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM orders WHERE user_id = :user_id;");
+    query.bindValue(":user_id", QVariant(CurrentUser::instance()->user().id()));
+    query.exec();
+    while(query.next()){
+        int id = query.value(0).toInt();
+        QDate date = query.value(1).toDate();
+        double totalCost = query.value(2).toDouble();
+
+        list.append(new Order(id, date, totalCost));
+    }
+    return list;
+}
+
 Device *DbManager::getDeviceById(int id)
 {
     Device* device = nullptr;
