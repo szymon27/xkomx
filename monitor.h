@@ -11,6 +11,7 @@ protected:
     double m_screenSize;
     QString m_resolution;
     DisplayType m_displayType;
+
 public:
     Monitor(int id, DeviceType deviceType, QString producer, QString model,
             int count, double price, QImage image, ImageType imageType,

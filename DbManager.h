@@ -18,6 +18,7 @@
 #include "cart.h"
 #include "currentuser.h"
 #include "order.h"
+#include <QSql>
 #include <QDateTime>
 
 class DbManager
@@ -38,9 +39,13 @@ public:
     bool signUp(NewUser user);
 
     QVector<Device*> devicesList() const;
+    QVector<User> usersList() const;
+    bool changeUserType(int id, int newType)const;
     QVector<Order> Orders() const;
     QVector<OrderDetails> orderDevices(int) const;
     Device *getDeviceById(int id);
+    //bool addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QString file, ImageType imageType);
+    bool addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray image, ImageType imageType);
     bool newPassword(QString newpass);
     bool changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country);
 

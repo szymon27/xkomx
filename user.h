@@ -45,4 +45,5 @@ public:
     void setCountry(QString country);
 };
 
+
 #endif // USER_H

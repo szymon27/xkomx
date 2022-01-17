@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UserWidget</class>
- <widget class="QWidget" name="UserWidget">
+ <class>ManagerUserWidget</class>
+ <widget class="QWidget" name="ManagerUserWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -93,42 +93,12 @@
           </size>
          </property>
          <property name="text">
-          <string>Surname</string>
+          <string>Surname:</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="lbSurname">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QLabel" name="lbType_">
-         <property name="minimumSize">
-          <size>
-           <width>60</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>60</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Type:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lbType">
          <property name="text">
           <string/>
          </property>
@@ -165,19 +135,6 @@
       <widget class="QPushButton" name="btnEdit">
        <property name="text">
         <string>Save</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnRemove">
-       <property name="minimumSize">
-        <size>
-         <width>60</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Remove</string>
        </property>
       </widget>
      </item>

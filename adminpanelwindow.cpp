@@ -8,6 +8,7 @@ AdminPanelWindow::AdminPanelWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->saList->takeWidget();
     ui->saList->setWidget(ui->verticalLayoutWidget_2);
+    emit on_btnDevices_clicked();
 }
 
 AdminPanelWindow::~AdminPanelWindow()
@@ -17,6 +18,7 @@ AdminPanelWindow::~AdminPanelWindow()
 
 void AdminPanelWindow::on_btnDevices_clicked()
 {
+    ui->btnAdd->show();
     QLayoutItem* item;
     while ( ( item = ui->vlList->takeAt( 0 ) ) != NULL )
     {
@@ -35,6 +37,7 @@ void AdminPanelWindow::on_btnDevices_clicked()
 
 void AdminPanelWindow::on_btnUseres_clicked()
 {
+    ui->btnAdd->hide();
     QLayoutItem* item;
     while ( ( item = ui->vlList->takeAt( 0 ) ) != NULL )
     {
@@ -42,6 +45,18 @@ void AdminPanelWindow::on_btnUseres_clicked()
         delete item;
         item = nullptr;
     }
-    //to co wyzej tylko trzeba zmienic na user
+    QVector<User> users = DbManager::instance()->usersList();
+    for(int i = 0; i < users.size(); i++) {
+        ManagerUserWidget *productWidget = new ManagerUserWidget(users.at(i));
+        ui->vlList->addWidget(productWidget);
+    }
+}
+
+
+void AdminPanelWindow::on_btnAdd_clicked()
+{
+    AddNewDeviceWindow *window = new AddNewDeviceWindow();
+    window->exec();
+    delete window;
 }
 
