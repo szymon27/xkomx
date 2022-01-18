@@ -1,19 +1,19 @@
-#include "addnewcomputerwidget.h"
-#include "ui_addnewcomputerwidget.h"
+#include "addeditcomputerwidget.h"
+#include "ui_addeditcomputerwidget.h"
 
-AddNewComputerWidget::AddNewComputerWidget(QWidget *parent) :
+AddEditComputerWidget::AddEditComputerWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AddNewComputerWidget)
+    ui(new Ui::AddEditComputerWidget)
 {
     ui->setupUi(this);
 }
 
-AddNewComputerWidget::~AddNewComputerWidget()
+AddEditComputerWidget::~AddEditComputerWidget()
 {
     delete ui;
 }
 
-QString AddNewComputerWidget::GetDeviceDescription()
+QString AddEditComputerWidget::GetDeviceDescription()
 {
     QString cpu = ui->leProcessor->text();
     QString ram = ui->leRam->text();

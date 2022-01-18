@@ -1,21 +1,35 @@
-#include "addnewdevicewindow.h"
-#include "ui_addnewdevicewindow.h"
+#include "addeditdevicewindow.h"
+#include "ui_addeditdevicewindow.h"
 #include <QDebug>
-AddNewDeviceWindow::AddNewDeviceWindow(QWidget *parent) :
+AddEditDeviceWindow::AddEditDeviceWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddNewDeviceWindow)
+    ui(new Ui::AddEditDeviceWindow)
 {
+    ACTION = Action::Adding;
     ui->setupUi(this);
     fillCombo();
 }
 
-AddNewDeviceWindow::~AddNewDeviceWindow()
+AddEditDeviceWindow::AddEditDeviceWindow(Device* device, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AddEditDeviceWindow),
+    m_device(device)
+{
+    ACTION = Action::Editing;
+    ui->setupUi(this);
+    fillCombo();
+    ui->leModel->setText(m_device->model());
+    ui->leProducer->setText(m_device->producer());
+    ui->lbImage->setPixmap(QPixmap::fromImage(m_device->image()));
+}
+
+AddEditDeviceWindow::~AddEditDeviceWindow()
 {
     delete ui;
     delete detailsWidget;
 }
 
-void AddNewDeviceWindow::fillCombo()
+void AddEditDeviceWindow::fillCombo()
 {
     QList<QString> list;
     list.append(deviceTypeToString(DeviceType::Computer));
@@ -25,7 +39,7 @@ void AddNewDeviceWindow::fillCombo()
     ui->cbxDeviceType->addItems(list);
 }
 
-void AddNewDeviceWindow::on_cbxDeviceType_currentIndexChanged(const QString &arg1)
+void AddEditDeviceWindow::on_cbxDeviceType_currentIndexChanged(const QString &arg1)
 {
     if(ui->cbxDeviceType->isEnabled()){
             QLayoutItem* item;
@@ -37,19 +51,19 @@ void AddNewDeviceWindow::on_cbxDeviceType_currentIndexChanged(const QString &arg
             }
     switch (stringToDeviceType(arg1)) {
     case DeviceType::Computer:
-        detailsWidget = new AddNewComputerWidget();
+        detailsWidget = new AddEditComputerWidget();
         ui->verticalLayout_2->addWidget(detailsWidget);
         break;
     case DeviceType::Keyboard:
-        detailsWidget = new AddNewKeyboardWidget();
+        detailsWidget = new AddEditKeyboardWidget();
         ui->verticalLayout_2->addWidget(detailsWidget);
         break;
     case DeviceType::Monitor:
-        detailsWidget = new AddNewMonitorWidget();
+        detailsWidget = new AddEditMonitorWidget();
         ui->verticalLayout_2->addWidget(detailsWidget);
         break;
     case DeviceType::Mouse:
-        detailsWidget = new AddNewMouseWidget();
+        detailsWidget = new AddEditMouseWidget();
         ui->verticalLayout_2->addWidget(detailsWidget);
         break;
     case DeviceType::Unknown: return;
@@ -58,33 +72,30 @@ void AddNewDeviceWindow::on_cbxDeviceType_currentIndexChanged(const QString &arg
 }
 
 
-void AddNewDeviceWindow::on_btnCancel_clicked()
+void AddEditDeviceWindow::on_btnCancel_clicked()
 {
-    QLayoutItem* item;
-    if ( ( item = ui->verticalLayout_2->takeAt( 0 ) ) != NULL)
-    {
-        delete item->widget();
-        delete item;
-        item = nullptr;
-    }
     this->close();
 }
 
 
-void AddNewDeviceWindow::on_btnConfirm_clicked()
+void AddEditDeviceWindow::on_btnConfirm_clicked()
 {
 
     DeviceType deviceType = stringToDeviceType(ui->cbxDeviceType->currentText());
     QString producer = ui->leProducer->text();
     QString model = ui->leModel->text();
-    QString description = "a";//((IDeviceDetails*)detailsWidget)->GetDeviceDescription();
+    QString description = ((IDeviceDetails*)detailsWidget)->GetDeviceDescription();
     int count = ui->sbxCount->value();
     double price = ui->sbxPrice->value();
-    QByteArray byteArray = file->readAll();
+    QFile file(imagePath);
+    QByteArray byteArray;
+    if(file.open(QIODevice::ReadOnly)){
+        byteArray = file.readAll();
+        file.close();
+        qDebug() << byteArray.length();
+    }
+
     ImageType imageType = imagePath.right(3) == "png" ? ImageType::PNG : ImageType::JPG;
-    //if(DbManager::instance()->addNewDevice(deviceType, producer, model, description, count, price, imagePath.replace("/", "\\"), imageType)){
-    //    QMessageBox::information(this, "XKOMX", "New device added successfully!");
-    //    emit on_btnCancel_clicked();
     if(DbManager::instance()->addNewDevice(deviceType, producer, model, description, count, price, byteArray, imageType)){
         QMessageBox::information(this, "XKOMX", "New device added successfully!");
         emit on_btnCancel_clicked();
@@ -95,7 +106,7 @@ void AddNewDeviceWindow::on_btnConfirm_clicked()
 }
 
 
-void AddNewDeviceWindow::on_btnAddImage_clicked()
+void AddEditDeviceWindow::on_btnAddImage_clicked()
 {
     imagePath = QFileDialog::getOpenFileName(this, "Choose Image file", "", "Images (*.png *.jpg)");
     if(imagePath.isEmpty()){
@@ -103,7 +114,5 @@ void AddNewDeviceWindow::on_btnAddImage_clicked()
         return;
     }
     ui->lbImage->setPixmap(QPixmap::fromImage(QImage(imagePath)));
-    file = new QFile(imagePath);
-        qDebug() << QVariant(imagePath).toString();
 }
 

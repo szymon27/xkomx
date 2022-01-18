@@ -1,20 +1,20 @@
-#include "addnewkeyboardwidget.h"
-#include "ui_addnewkeyboardwidget.h"
+#include "addeditkeyboardwidget.h"
+#include "ui_addeditkeyboardwidget.h"
 
-AddNewKeyboardWidget::AddNewKeyboardWidget(QWidget *parent) :
+AddEditKeyboardWidget::AddEditKeyboardWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AddNewKeyboardWidget)
+    ui(new Ui::AddEditKeyboardWidget)
 {
     ui->setupUi(this);
     fillCombo();
 }
 
-AddNewKeyboardWidget::~AddNewKeyboardWidget()
+AddEditKeyboardWidget::~AddEditKeyboardWidget()
 {
     delete ui;
 }
 
-QString AddNewKeyboardWidget::GetDeviceDescription()
+QString AddEditKeyboardWidget::GetDeviceDescription()
 {
     QString wireless = ui->chxWireless->isChecked() ? "true" : "false";
     QString lighting = ui->chxLighting->isChecked() ? "true" : "false";
@@ -23,7 +23,7 @@ QString AddNewKeyboardWidget::GetDeviceDescription()
     return QString("{\"wireless\":%1,\"keyboard type\":\"%2\",\"lighting\":%3,\"numpad\":%4}").arg(wireless, type, lighting, numpad);
 }
 
-void AddNewKeyboardWidget::fillCombo()
+void AddEditKeyboardWidget::fillCombo()
 {
     QList<QString> list;
     list.append(keyboardTypeToString(KeyboardType::Mechanical));

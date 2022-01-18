@@ -5,7 +5,7 @@
 #include "device.h"
 #include "managerdevicewidget.h"
 #include "manageruserwidget.h"
-#include "addnewdevicewindow.h"
+#include "addeditdevicewindow.h"
 #include "dbmanager.h"
 
 namespace Ui {

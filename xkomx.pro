@@ -9,11 +9,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    addnewcomputerwidget.cpp \
-    addnewdevicewindow.cpp \
-    addnewkeyboardwidget.cpp \
-    addnewmonitorwidget.cpp \
-    addnewmousewidget.cpp \
+    addeditcomputerwidget.cpp \
+    addeditdevicewindow.cpp \
+    addeditkeyboardwidget.cpp \
+    addeditmonitorwidget.cpp \
+    addeditmousewidget.cpp \
     adminpanelwindow.cpp \
     cart.cpp \
     cartdevicewidget.cpp \
@@ -49,11 +49,11 @@ SOURCES += \
     usertype.cpp
 
 HEADERS += \
-    addnewcomputerwidget.h \
-    addnewdevicewindow.h \
-    addnewkeyboardwidget.h \
-    addnewmonitorwidget.h \
-    addnewmousewidget.h \
+    addeditcomputerwidget.h \
+    addeditdevicewindow.h \
+    addeditkeyboardwidget.h \
+    addeditmonitorwidget.h \
+    addeditmousewidget.h \
     adminpanelwindow.h \
     cart.h \
     cartdevicewidget.h \
@@ -89,11 +89,11 @@ HEADERS += \
     usertype.h
 
 FORMS += \
-    addnewcomputerwidget.ui \
-    addnewdevicewindow.ui \
-    addnewkeyboardwidget.ui \
-    addnewmonitorwidget.ui \
-    addnewmousewidget.ui \
+    addeditcomputerwidget.ui \
+    addeditdevicewindow.ui \
+    addeditkeyboardwidget.ui \
+    addeditmonitorwidget.ui \
+    addeditmousewidget.ui \
     adminpanelwindow.ui \
     cartdevicewidget.ui \
     cartwidget.ui \

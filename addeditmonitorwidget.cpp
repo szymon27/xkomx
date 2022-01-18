@@ -1,20 +1,20 @@
-#include "addnewmonitorwidget.h"
-#include "ui_addnewmonitorwidget.h"
+#include "addeditmonitorwidget.h"
+#include "ui_addeditmonitorwidget.h"
 
-AddNewMonitorWidget::AddNewMonitorWidget(QWidget *parent) :
+AddEditMonitorWidget::AddEditMonitorWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AddNewMonitorWidget)
+    ui(new Ui::AddEditMonitorWidget)
 {
     ui->setupUi(this);
     fillCombo();
 }
 
-AddNewMonitorWidget::~AddNewMonitorWidget()
+AddEditMonitorWidget::~AddEditMonitorWidget()
 {
     delete ui;
 }
 
-QString AddNewMonitorWidget::GetDeviceDescription()
+QString AddEditMonitorWidget::GetDeviceDescription()
 {
     QString refreshRate = QString::number(ui->sbxRefreshRate->value());
     QString screenSize = QString::number(ui->sbxScreenSize->value());
@@ -23,7 +23,7 @@ QString AddNewMonitorWidget::GetDeviceDescription()
     return QString("{\"refresh rate\":%1,\"screen size\":%2,\"resolution\":\"%3\",\"display type\":\"%4\"}").arg(refreshRate, screenSize, res, type);
 }
 
-void AddNewMonitorWidget::fillCombo()
+void AddEditMonitorWidget::fillCombo()
 {
     QList<QString> list;
     list.append(displayTypeToString(DisplayType::IPS));

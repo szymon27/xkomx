@@ -212,7 +212,6 @@ Device *DbManager::getDeviceById(int id)
     return device;
 }
 
-//bool DbManager::addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QString file, ImageType imageType)
 bool DbManager::addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray file, ImageType imageType)
 {
     qDebug() <<file.length();
@@ -226,10 +225,7 @@ bool DbManager::addNewDevice(DeviceType deviceType, QString producer, QString mo
     query.bindValue(":price", QVariant(price));
     query.bindValue(":file", file, QSql::In | QSql::Binary);
     query.bindValue(":imageType", QVariant(int(imageType)));
-    query.exec();
-    QSqlError err = query.lastError();
-    qDebug() << err.text();
-    return 0;
+    return query.exec();
 }
 
 bool DbManager::newPassword(QString newpass)

@@ -55,7 +55,7 @@ void AdminPanelWindow::on_btnUseres_clicked()
 
 void AdminPanelWindow::on_btnAdd_clicked()
 {
-    AddNewDeviceWindow *window = new AddNewDeviceWindow();
+    AddEditDeviceWindow *window = new AddEditDeviceWindow();
     window->exec();
     delete window;
 }

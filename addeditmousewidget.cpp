@@ -1,19 +1,19 @@
-#include "addnewmousewidget.h"
-#include "ui_addnewmousewidget.h"
+#include "addeditmousewidget.h"
+#include "ui_addeditmousewidget.h"
 
-AddNewMouseWidget::AddNewMouseWidget(QWidget *parent) :
+AddEditMouseWidget::AddEditMouseWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AddNewMouseWidget)
+    ui(new Ui::AddEditMouseWidget)
 {
     ui->setupUi(this);
 }
 
-AddNewMouseWidget::~AddNewMouseWidget()
+AddEditMouseWidget::~AddEditMouseWidget()
 {
     delete ui;
 }
 
-QString AddNewMouseWidget::GetDeviceDescription()
+QString AddEditMouseWidget::GetDeviceDescription()
 {
     QString wireless = ui->chbWireless->isChecked() ? "true" : "false";
     QString keys = QString::number(ui->sbxKeys->value());
