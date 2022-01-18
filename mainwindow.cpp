@@ -60,18 +60,6 @@ void MainWindow::on_btnCart_clicked()
 }
 
 
-// stary on_btnShop_clicked()
-//while(ui->vlProducts->count() > 0)
-//    delete ui->vlProducts->takeAt(0);
-//
-//QVector<Device> devices = DbManager::getInstance()->getDevicesList();
-//for(int i = 0; i < devices.size(); i++) {
-//    DeviceWidget *productWidget = new DeviceWidget();
-//    productWidget->setProduct(devices.at(i));
-//    ui->vlProducts->addWidget(productWidget);
-//}
-
-
 void MainWindow::on_btnAdminPanel_clicked()
 {
     AdminPanelWindow *window = new AdminPanelWindow();
@@ -86,4 +74,5 @@ void MainWindow::on_btnProfile_clicked()
     window->exec();
     delete window;
 }
+
 

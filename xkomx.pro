@@ -45,6 +45,7 @@ SOURCES += \
     orderhistorywindow.cpp \
     signinwindow.cpp \
     signupwindow.cpp \
+    sorting.cpp \
     user.cpp \
     usertype.cpp
 
@@ -85,6 +86,7 @@ HEADERS += \
     orderhistorywindow.h \
     signinwindow.h \
     signupwindow.h \
+    sorting.h \
     user.h \
     usertype.h
 

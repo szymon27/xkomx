@@ -29,6 +29,7 @@ private slots:
     void on_btnCart_clicked();
 
     void prepCurrentWidget(QWidget*);
+
     void on_btnAdminPanel_clicked();
 
     void on_btnProfile_clicked();
@@ -36,5 +37,6 @@ private slots:
 private:
     Ui::MainWindow* ui = nullptr;
     QWidget *currentWidget = nullptr;
+
 };
 #endif // MAINWINDOW_H

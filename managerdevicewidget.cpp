@@ -33,6 +33,12 @@ void ManagerDeviceWidget::on_btnEdit_clicked()
 
 void ManagerDeviceWidget::on_pushButton_2_clicked()
 {
+    if(DbManager::instance()->removeById(m_device->id())){
+        QMessageBox::information(this, "XKOMX", "Device removed successfully!");
+                emit refresh();
+    }
+    else
+        QMessageBox::warning(this, "XKOMX", "Device removal failed!");
 
 }
 

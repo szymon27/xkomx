@@ -18,6 +18,9 @@ public:
     explicit ManagerDeviceWidget(Device*, QWidget *parent = nullptr);
     ~ManagerDeviceWidget();
 
+signals:
+    void refresh();
+
 private slots:
     void on_btnEdit_clicked();
 

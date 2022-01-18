@@ -18,6 +18,7 @@
 #include "cart.h"
 #include "currentuser.h"
 #include "order.h"
+#include "sorting.h"
 #include <QSql>
 #include <QDateTime>
 
@@ -48,6 +49,14 @@ public:
     bool editDevice(int id, DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray image, ImageType imageType);
     bool newPassword(QString newpass);
     bool changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country);
+    QList<QString> getProducers();
+
+    QVector<Device*> filterProducer(QString producer);
+    QVector<Device*> filterDeviceType(DeviceType deviceType);
+    QVector<Device*> sorted(Sorting sorting);
+    QVector<Device*> search(QString search);
+
+    bool removeById(int id);
 
     bool order(QString username, QString password);
 };

@@ -30,6 +30,7 @@ void AdminPanelWindow::on_btnDevices_clicked()
     QVector<Device*> devices = DbManager::instance()->devicesList();
     for(int i = 0; i < devices.size(); i++) {
         ManagerDeviceWidget *productWidget = new ManagerDeviceWidget(devices.at(i));
+        connect(productWidget, SIGNAL(refresh()), this, SLOT(on_btnDevices_clicked()));
         ui->vlList->addWidget(productWidget);
     }
 }
@@ -58,5 +59,6 @@ void AdminPanelWindow::on_btnAdd_clicked()
     AddEditDeviceWindow *window = new AddEditDeviceWindow();
     window->exec();
     delete window;
+    emit on_btnDevices_clicked();
 }
 
