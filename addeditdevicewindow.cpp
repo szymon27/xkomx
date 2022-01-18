@@ -10,23 +10,49 @@ AddEditDeviceWindow::AddEditDeviceWindow(QWidget *parent) :
     fillCombo();
 }
 
-AddEditDeviceWindow::AddEditDeviceWindow(Device* device, QWidget *parent) :
+AddEditDeviceWindow::AddEditDeviceWindow(Device *device, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEditDeviceWindow),
     m_device(device)
 {
     ACTION = Action::Editing;
     ui->setupUi(this);
+        ui->cbxDeviceType->setDisabled(true);
     fillCombo();
     ui->leModel->setText(m_device->model());
     ui->leProducer->setText(m_device->producer());
     ui->lbImage->setPixmap(QPixmap::fromImage(m_device->image()));
+    ui->sbxCount->setValue(m_device->count());
+    ui->sbxPrice->setValue(m_device->price());
+    ui->cbxDeviceType->setCurrentText(deviceTypeToString(m_device->deviceType()));
+    switch (stringToDeviceType(ui->cbxDeviceType->currentText())) {
+    case Monitor:
+        detailsWidget = new AddEditMonitorWidget((class::Monitor*)m_device);
+        ui->verticalLayout_2->addWidget(detailsWidget);
+        break;
+    case Computer:
+        detailsWidget = new AddEditComputerWidget((class::Computer*)m_device);
+        ui->verticalLayout_2->addWidget(detailsWidget);
+        break;
+    case Mouse:
+        detailsWidget = new AddEditMouseWidget((class::Mouse*)m_device);
+        ui->verticalLayout_2->addWidget(detailsWidget);
+        break;
+    case Keyboard:
+        detailsWidget = new AddEditKeyboardWidget((class::Keyboard*)m_device);
+        ui->verticalLayout_2->addWidget(detailsWidget);
+        break;
+    case Unknown:
+        return;
+    }
+    ui->cbxDeviceType->setEnabled(true);
 }
 
 AddEditDeviceWindow::~AddEditDeviceWindow()
 {
     delete ui;
     delete detailsWidget;
+    delete m_device;
 }
 
 void AddEditDeviceWindow::fillCombo()
@@ -74,6 +100,7 @@ void AddEditDeviceWindow::on_cbxDeviceType_currentIndexChanged(const QString &ar
 
 void AddEditDeviceWindow::on_btnCancel_clicked()
 {
+    flag_image = false;
     this->close();
 }
 
@@ -84,24 +111,58 @@ void AddEditDeviceWindow::on_btnConfirm_clicked()
     DeviceType deviceType = stringToDeviceType(ui->cbxDeviceType->currentText());
     QString producer = ui->leProducer->text();
     QString model = ui->leModel->text();
-    QString description = ((IDeviceDetails*)detailsWidget)->GetDeviceDescription();
-    int count = ui->sbxCount->value();
-    double price = ui->sbxPrice->value();
-    QFile file(imagePath);
-    QByteArray byteArray;
-    if(file.open(QIODevice::ReadOnly)){
-        byteArray = file.readAll();
-        file.close();
-        qDebug() << byteArray.length();
+
+    QString description;
+    switch (stringToDeviceType(ui->cbxDeviceType->currentText())) {
+    case DeviceType::Computer:
+        description = ((AddEditComputerWidget*)detailsWidget)->GetDeviceDescription();
+        break;
+    case DeviceType::Keyboard:
+        description = ((AddEditKeyboardWidget*)detailsWidget)->GetDeviceDescription();
+        break;
+    case DeviceType::Monitor:
+        description = ((AddEditMonitorWidget*)detailsWidget)->GetDeviceDescription();
+        break;
+    case DeviceType::Mouse:
+        description = ((AddEditMouseWidget*)detailsWidget)->GetDeviceDescription();
+        break;
+    case DeviceType::Unknown: return;
     }
 
+    int count = ui->sbxCount->value();
+    double price = ui->sbxPrice->value();
+
+    QFile file(imagePath);
+    QByteArray byteArray;
     ImageType imageType = imagePath.right(3) == "png" ? ImageType::PNG : ImageType::JPG;
-    if(DbManager::instance()->addNewDevice(deviceType, producer, model, description, count, price, byteArray, imageType)){
-        QMessageBox::information(this, "XKOMX", "New device added successfully!");
-        emit on_btnCancel_clicked();
+    const QPixmap* pixmap = ui->lbImage->pixmap();
+        if(pixmap){
+            QImage image(pixmap->toImage());
+        QBuffer buffer(&byteArray);
+        buffer.open(QIODevice::WriteOnly);
+        imageType == ImageType::PNG ? QPixmap::fromImage(image).save(&buffer, "PNG") : QPixmap::fromImage(image).save(&buffer, "JPG");
+        }
+        else{
+
+            return;
+        }
+    if(ACTION == Action::Adding){
+        if(DbManager::instance()->addNewDevice(deviceType, producer, model, description, count, price, byteArray, imageType)){
+            QMessageBox::information(this, "XKOMX", "New device added successfully!");
+         emit on_btnCancel_clicked();
     }
     else
         QMessageBox::warning(this, "XKOMX", "New device addition failed!");
+    }
+
+    if(ACTION == Action::Editing){
+        if(DbManager::instance()->editDevice(m_device->id(), deviceType, producer, model, description, count, price, byteArray, imageType)){
+            QMessageBox::information(this, "XKOMX", "Editing device ended successfully!");
+         emit on_btnCancel_clicked();
+    }
+    else
+        QMessageBox::warning(this, "XKOMX", "Editing device failed!");
+    }
 
 }
 
@@ -110,9 +171,11 @@ void AddEditDeviceWindow::on_btnAddImage_clicked()
 {
     imagePath = QFileDialog::getOpenFileName(this, "Choose Image file", "", "Images (*.png *.jpg)");
     if(imagePath.isEmpty()){
+        flag_image = false;
         QMessageBox::warning(this, "XKOMX", "Wrong file!");
         return;
     }
+    flag_image = true;
     ui->lbImage->setPixmap(QPixmap::fromImage(QImage(imagePath)));
 }
 

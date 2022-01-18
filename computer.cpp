@@ -1,5 +1,15 @@
 #include "computer.h"
 
+const QString &Computer::system() const
+{
+    return m_system;
+}
+
+void Computer::setSystem(const QString &newSystem)
+{
+    m_system = newSystem;
+}
+
 Computer::Computer(int id, DeviceType deviceType, QString producer, QString model, int count, double price, QImage image, ImageType imageType, QString description)
     :   Device(id, deviceType, producer, model, count, price, image, imageType)
 {

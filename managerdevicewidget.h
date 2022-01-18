@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "device.h"
 #include "devicetype.h"
+#include "addeditdevicewindow.h"
 
 namespace Ui {
 class ManagerDeviceWidget;
@@ -16,6 +17,11 @@ class ManagerDeviceWidget : public QWidget
 public:
     explicit ManagerDeviceWidget(Device*, QWidget *parent = nullptr);
     ~ManagerDeviceWidget();
+
+private slots:
+    void on_btnEdit_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::ManagerDeviceWidget *ui;

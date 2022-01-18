@@ -8,6 +8,16 @@ AddEditMouseWidget::AddEditMouseWidget(QWidget *parent) :
     ui->setupUi(this);
 }
 
+AddEditMouseWidget::AddEditMouseWidget(class::Mouse* device, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::AddEditMouseWidget)
+{
+    ui->setupUi(this);
+    ui->chbWireless->setChecked(device->wireless());
+    ui->sbxDPI->setValue(device->dpi());
+    ui->sbxKeys->setValue(device->keys());
+}
+
 AddEditMouseWidget::~AddEditMouseWidget()
 {
     delete ui;

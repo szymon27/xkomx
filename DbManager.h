@@ -44,8 +44,8 @@ public:
     QVector<Order> Orders() const;
     QVector<OrderDetails> orderDevices(int) const;
     Device *getDeviceById(int id);
-    //bool addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QString file, ImageType imageType);
     bool addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray image, ImageType imageType);
+    bool editDevice(int id, DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray image, ImageType imageType);
     bool newPassword(QString newpass);
     bool changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country);
 

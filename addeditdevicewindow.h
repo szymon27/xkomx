@@ -13,8 +13,8 @@
 #include "dbmanager.h"
 
 enum Action{
-    Editing = true,
-    Adding = false
+    Adding = 1,
+    Editing = 2
 };
 
 
@@ -47,6 +47,7 @@ private:
     Device *m_device = nullptr;
     void fillCombo();
     void setUpEditing();
+    bool flag_image = false;
 };
 
 #endif // ADDEDITDEVICEWINDOW_H

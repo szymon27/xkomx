@@ -104,7 +104,9 @@ QVector<Device*> DbManager::devicesList() const {
         QImage image = imageReader.read();
 
         switch(deviceType) {
-            case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
+        case Unknown:
+            break;
+        case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
             case DeviceType::Computer: list.append(new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description)); break;
             case DeviceType::Mouse: list.append(new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description)); break;
             case DeviceType::Keyboard: list.append(new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description)); break;
@@ -203,7 +205,9 @@ Device *DbManager::getDeviceById(int id)
         QImage image = imageReader.read();
 
         switch(deviceType) {
-            case DeviceType::Monitor: return new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description);
+        case Unknown:
+            break;
+        case DeviceType::Monitor: return new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description);
             case DeviceType::Computer: return new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description);
             case DeviceType::Mouse: return new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description);
             case DeviceType::Keyboard: return new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description);
@@ -214,7 +218,6 @@ Device *DbManager::getDeviceById(int id)
 
 bool DbManager::addNewDevice(DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray file, ImageType imageType)
 {
-    qDebug() <<file.length();
     QSqlQuery query;
     query.prepare("INSERT INTO devices (device_type_id, producer, model, description, count, price, photo, image_type_id) VALUES(:deviceType, :producer, :model, :description, :count, :price, :file, :imageType);");
     query.bindValue(":deviceType", QVariant((int)deviceType));
@@ -225,6 +228,21 @@ bool DbManager::addNewDevice(DeviceType deviceType, QString producer, QString mo
     query.bindValue(":price", QVariant(price));
     query.bindValue(":file", file, QSql::In | QSql::Binary);
     query.bindValue(":imageType", QVariant(int(imageType)));
+    return query.exec();
+}
+
+bool DbManager::editDevice(int id, DeviceType deviceType, QString producer, QString model, QString description, int count, double price, QByteArray file, ImageType imageType){
+    QSqlQuery query;
+    query.prepare("UPDATE devices SET device_type_id=:deviceType, producer=:producer, model=:model, count=:count, price=:price, photo=:photo, image_type_id=:imageType, description=:description WHERE id=:id;");
+    query.bindValue(":deviceType", QVariant((int)deviceType));
+    query.bindValue(":producer", QVariant(producer));
+    query.bindValue(":model", QVariant(model));
+    query.bindValue(":count", QVariant(count));
+    query.bindValue(":price", QVariant(price));
+    query.bindValue(":photo", file, QSql::In | QSql::Binary);
+    query.bindValue(":imageType", QVariant((int)imageType));
+    query.bindValue(":description", QVariant(description));
+    query.bindValue(":id", QVariant(id));
     return query.exec();
 }
 

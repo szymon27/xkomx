@@ -9,6 +9,18 @@ AddEditKeyboardWidget::AddEditKeyboardWidget(QWidget *parent) :
     fillCombo();
 }
 
+AddEditKeyboardWidget::AddEditKeyboardWidget(class::Keyboard* device, QWidget *parent):
+    QWidget(parent),
+    ui(new Ui::AddEditKeyboardWidget)
+{
+    ui->setupUi(this);
+    fillCombo();
+    ui->cbxKeyboardType->setCurrentText(keyboardTypeToString(device->keyboardType()));
+    ui->chxLighting->setChecked(device->lighting());
+    ui->chxNumpad->setChecked(device->numpad());
+    ui->chxWireless->setChecked(device->wireless());
+}
+
 AddEditKeyboardWidget::~AddEditKeyboardWidget()
 {
     delete ui;

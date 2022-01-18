@@ -2,6 +2,7 @@
 #define ADDEDITMOUSEWIDGET_H
 
 #include <QWidget>
+#include "mouse.h"
 #include "idevicedetails.h"
 
 namespace Ui {
@@ -14,6 +15,7 @@ class AddEditMouseWidget : public QWidget, public IDeviceDetails
 
 public:
     explicit AddEditMouseWidget(QWidget *parent = nullptr);
+    explicit AddEditMouseWidget(class::Mouse* device, QWidget *parent = nullptr);
     ~AddEditMouseWidget();
     QString GetDeviceDescription() override;
 

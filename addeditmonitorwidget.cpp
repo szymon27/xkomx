@@ -9,6 +9,19 @@ AddEditMonitorWidget::AddEditMonitorWidget(QWidget *parent) :
     fillCombo();
 }
 
+AddEditMonitorWidget::AddEditMonitorWidget(class::Monitor* device, QWidget *parent):
+    QWidget(parent),
+    ui(new Ui::AddEditMonitorWidget)
+{
+    ui->setupUi(this);
+    fillCombo();
+
+    ui->cbxDisplayType->setCurrentText(displayTypeToString(device->displayType()));
+    ui->leResolution->setText(device->resolution());
+    ui->sbxRefreshRate->setValue(device->refreshRate());
+    ui->sbxScreenSize->setValue(device->screenSize());
+}
+
 AddEditMonitorWidget::~AddEditMonitorWidget()
 {
     delete ui;

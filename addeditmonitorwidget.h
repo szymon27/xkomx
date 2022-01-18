@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "displaytype.h"
+#include "monitor.h"
 #include "idevicedetails.h"
 
 namespace Ui {
@@ -15,6 +16,7 @@ class AddEditMonitorWidget : public QWidget, public IDeviceDetails
 
 public:
     explicit AddEditMonitorWidget(QWidget *parent = nullptr);
+    explicit AddEditMonitorWidget(class::Monitor* device, QWidget *parent = nullptr);
     ~AddEditMonitorWidget();
     QString GetDeviceDescription() override;
 

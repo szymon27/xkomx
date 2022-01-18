@@ -22,3 +22,17 @@ void ManagerDeviceWidget::setControls()
     ui->lbModel->setText(m_device->model());
     ui->lbType->setText(deviceTypeToString(m_device->deviceType()));
 }
+
+void ManagerDeviceWidget::on_btnEdit_clicked()
+{
+    AddEditDeviceWindow *window = new AddEditDeviceWindow(m_device);
+    window->exec();
+    delete window;
+}
+
+
+void ManagerDeviceWidget::on_pushButton_2_clicked()
+{
+
+}
+

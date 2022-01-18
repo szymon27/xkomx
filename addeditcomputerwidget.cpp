@@ -8,6 +8,19 @@ AddEditComputerWidget::AddEditComputerWidget(QWidget *parent) :
     ui->setupUi(this);
 }
 
+AddEditComputerWidget::AddEditComputerWidget(class::Computer* device, QWidget *parent):
+    QWidget(parent),
+    ui(new Ui::AddEditComputerWidget)
+{
+    ui->setupUi(this);
+    ui->leDisc->setText(device->disc());
+    ui->leGraphicsCard->setText(device->graphicsCard());
+    ui->leRam->setText(device->ram());
+    ui->leProcessor->setText(device->processor());
+    ui->lePowerSupply->setText(device->powerSupply());
+    ui->leSystem->setText(device->system());
+}
+
 AddEditComputerWidget::~AddEditComputerWidget()
 {
     delete ui;

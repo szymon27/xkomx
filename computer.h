@@ -29,6 +29,8 @@ public:
     const QString powerSupply() const;
     void setPowerSupply(const QString powerSupply);
     virtual QString description() override;
+    const QString &system() const;
+    void setSystem(const QString &newSystem);
 };
 
 #endif // COMPUTER_H

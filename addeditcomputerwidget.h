@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "idevicedetails.h"
+#include "computer.h"
 
 namespace Ui {
 class AddEditComputerWidget;
@@ -14,6 +15,7 @@ class AddEditComputerWidget : public QWidget, public IDeviceDetails
 
 public:
     explicit AddEditComputerWidget(QWidget *parent = nullptr);
+    explicit AddEditComputerWidget(class::Computer* computer, QWidget *parent = nullptr);
     ~AddEditComputerWidget();
     QString GetDeviceDescription() override;
 private:

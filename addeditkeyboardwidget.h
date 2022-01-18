@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "idevicedetails.h"
+#include "keyboard.h"
 #include "keyboardtype.h"
 
 namespace Ui {
@@ -15,6 +16,7 @@ class AddEditKeyboardWidget : public QWidget, public IDeviceDetails
 
 public:
     explicit AddEditKeyboardWidget(QWidget *parent = nullptr);
+    explicit AddEditKeyboardWidget(class::Keyboard* device, QWidget *parent = nullptr);
     ~AddEditKeyboardWidget();
     QString GetDeviceDescription() override;
 private:
