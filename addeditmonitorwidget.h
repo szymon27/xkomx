@@ -5,7 +5,7 @@
 #include "displaytype.h"
 #include "monitor.h"
 #include "idevicedetails.h"
-
+#include "QMessageBox"
 namespace Ui {
 class AddEditMonitorWidget;
 }

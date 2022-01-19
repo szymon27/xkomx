@@ -29,10 +29,15 @@ AddEditMonitorWidget::~AddEditMonitorWidget()
 
 QString AddEditMonitorWidget::GetDeviceDescription()
 {
+
     QString refreshRate = QString::number(ui->sbxRefreshRate->value());
     QString screenSize = QString::number(ui->sbxScreenSize->value());
     QString res = ui->leResolution->text();
     QString type = ui->cbxDisplayType->currentText();
+    if(res==""){
+        QMessageBox::warning(this, "XKOMX", "Resolution textbox cannot be empty");
+        return 0;
+    }
     return QString("{\"refresh rate\":%1,\"screen size\":%2,\"resolution\":\"%3\",\"display type\":\"%4\"}").arg(refreshRate, screenSize, res, type);
 }
 

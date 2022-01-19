@@ -20,7 +20,7 @@
       <widget class="QLabel" name="lbRefreshRate">
        <property name="minimumSize">
         <size>
-         <width>65</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -50,7 +50,7 @@
       <widget class="QLabel" name="lbScreenSize">
        <property name="minimumSize">
         <size>
-         <width>65</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -76,7 +76,7 @@
       <widget class="QLabel" name="lbResolution">
        <property name="minimumSize">
         <size>
-         <width>65</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -102,7 +102,7 @@
       <widget class="QLabel" name="lbDisplayType">
        <property name="minimumSize">
         <size>
-         <width>65</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>

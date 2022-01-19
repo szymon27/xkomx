@@ -20,7 +20,7 @@
       <widget class="QLabel" name="lbProcessor">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -46,7 +46,7 @@
       <widget class="QLabel" name="lbRam">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -72,7 +72,7 @@
       <widget class="QLabel" name="lbGraphicsCard">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -98,7 +98,7 @@
       <widget class="QLabel" name="lbDisc">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -124,7 +124,7 @@
       <widget class="QLabel" name="lbPowerSupply">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>
@@ -150,7 +150,7 @@
       <widget class="QLabel" name="lbSystem">
        <property name="minimumSize">
         <size>
-         <width>70</width>
+         <width>100</width>
          <height>0</height>
         </size>
        </property>

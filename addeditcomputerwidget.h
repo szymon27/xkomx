@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "idevicedetails.h"
 #include "computer.h"
+#include "QMessageBox"
 
 namespace Ui {
 class AddEditComputerWidget;

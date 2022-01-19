@@ -58,6 +58,11 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QTextEdit{
+font-size:9;
+}</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>

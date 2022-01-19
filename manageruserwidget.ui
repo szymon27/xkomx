@@ -22,7 +22,7 @@
         <widget class="QLabel" name="lbUsername_">
          <property name="minimumSize">
           <size>
-           <width>60</width>
+           <width>85</width>
            <height>0</height>
           </size>
          </property>
@@ -52,7 +52,7 @@
         <widget class="QLabel" name="lbName_">
          <property name="minimumSize">
           <size>
-           <width>60</width>
+           <width>85</width>
            <height>0</height>
           </size>
          </property>
@@ -82,7 +82,7 @@
         <widget class="QLabel" name="lbSurname_">
          <property name="minimumSize">
           <size>
-           <width>60</width>
+           <width>85</width>
            <height>0</height>
           </size>
          </property>

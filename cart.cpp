@@ -36,7 +36,7 @@ double Cart::sum() const
 {
     double sum = 0;
     for(int i = 0; i < m_cartList.size(); i++)
-        sum += m_cartList.at(i).count * m_cartList.at(i).device->price();
+        sum += (m_cartList.at(i).count * m_cartList.at(i).device->price());
     return sum;
 }
 

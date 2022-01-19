@@ -111,7 +111,14 @@ void AddEditDeviceWindow::on_btnConfirm_clicked()
     DeviceType deviceType = stringToDeviceType(ui->cbxDeviceType->currentText());
     QString producer = ui->leProducer->text();
     QString model = ui->leModel->text();
-
+    if(producer==""){
+        QMessageBox::warning(this, "XKOMX", "Producer textbox cannot be empty");
+        return;
+    }
+    if(model==""){
+        QMessageBox::warning(this, "XKOMX", "Model textbox cannot be empty");
+        return;
+    }
     QString description;
     switch (stringToDeviceType(ui->cbxDeviceType->currentText())) {
     case DeviceType::Computer:
