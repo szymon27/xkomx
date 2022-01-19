@@ -5,8 +5,8 @@ DbManager* DbManager::s_instance = nullptr;
 
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
-    //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
-    m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao_proj\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("A:\\Projekty programowanie\\xcomx baza\\xkomx.db");
 

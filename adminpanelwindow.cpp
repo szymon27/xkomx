@@ -8,6 +8,9 @@ AdminPanelWindow::AdminPanelWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->saList->takeWidget();
     ui->saList->setWidget(ui->verticalLayoutWidget_2);
+    if(CurrentUser::instance()->user().userType() == UserType::Manager)
+        ui->btnUsers->setVisible(true);
+    else ui->btnUsers->setVisible(false);
     emit on_btnDevices_clicked();
 }
 
@@ -36,7 +39,7 @@ void AdminPanelWindow::on_btnDevices_clicked()
 }
 
 
-void AdminPanelWindow::on_btnUseres_clicked()
+void AdminPanelWindow::on_btnUsers_clicked()
 {
     ui->btnAdd->hide();
     QLayoutItem* item;

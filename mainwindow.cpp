@@ -5,6 +5,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->btnProfile->setVisible(false);
+    ui->btnAdminPanel->setVisible(false);
     emit on_btnShop_clicked();
 }
 
@@ -21,11 +23,18 @@ void MainWindow::on_btnSignIn_clicked()
         signInWindow->exec();
         delete signInWindow;
 
-        if(CurrentUser::instance()->user().userType() != UserType::Guest)
+        if(CurrentUser::instance()->user().userType() != UserType::Guest) {
             ui->btnSignIn->setText("Sign out");
+            ui->btnProfile->setVisible(true);
+            if(CurrentUser::instance()->user().userType() != UserType::Customer)
+                ui->btnAdminPanel->setVisible(true);
+
+        }
         return;
     }
     ui->btnSignIn->setText("Sign in");
+    ui->btnProfile->setVisible(false);
+    ui->btnAdminPanel->setVisible(false);
     CurrentUser::instance()->setUser(User());
 }
 

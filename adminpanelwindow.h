@@ -23,7 +23,7 @@ public:
 private slots:
     void on_btnDevices_clicked();
 
-    void on_btnUseres_clicked();
+    void on_btnUsers_clicked();
 
     void on_btnAdd_clicked();
 

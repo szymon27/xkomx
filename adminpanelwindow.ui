@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>XKOMX</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -26,7 +26,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>556</width>
+          <width>561</width>
           <height>445</height>
          </rect>
         </property>
@@ -67,7 +67,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnUseres">
+        <widget class="QPushButton" name="btnUsers">
          <property name="text">
           <string>Users list</string>
          </property>
