@@ -48,12 +48,12 @@ void CartWidget::on_btnBuy_clicked()
     }
 
     if(Cart::instance()->cartList().size() <= 0) {
-        QMessageBox::warning(this, "XKOMX", "Pusty koszyk");
+        QMessageBox::warning(this, "XKOMX", "Cart is empty!");
         return;
     }
 
     if(!Cart::instance()->checkCart()) {
-        QMessageBox::warning(this, "XKOMX", "Brak produktow");
+        QMessageBox::warning(this, "XKOMX", "Products out of stock!");
         return;
     }
 

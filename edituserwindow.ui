@@ -36,6 +36,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Name:</string>
        </property>
@@ -50,6 +56,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="lbSurname">
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Surname:</string>
        </property>
@@ -68,6 +80,12 @@
         <size>
          <width>46</width>
          <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="text">
@@ -107,6 +125,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Address:</string>
        </property>
@@ -125,6 +149,12 @@
         <size>
          <width>46</width>
          <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="text">
@@ -154,6 +184,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>113</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Old password:</string>
        </property>
@@ -178,6 +214,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>113</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>New password:</string>
        </property>
@@ -196,6 +238,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
       <widget class="QLabel" name="lbConfirmPass">
+       <property name="maximumSize">
+        <size>
+         <width>113</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Confirm new password:</string>
        </property>

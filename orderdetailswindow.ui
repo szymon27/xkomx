@@ -46,6 +46,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Name:</string>
        </property>
@@ -66,6 +72,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Surname:</string>
        </property>
@@ -84,6 +96,12 @@
         <size>
          <width>46</width>
          <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="text">
@@ -122,6 +140,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Address:</string>
        </property>
@@ -140,6 +164,12 @@
         <size>
          <width>46</width>
          <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>46</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="text">
@@ -166,6 +196,18 @@
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
       <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Bank username:</string>
        </property>
@@ -180,6 +222,18 @@
     <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Bank password:</string>
        </property>

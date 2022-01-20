@@ -30,11 +30,11 @@ void OrderDetailsWindow::on_btnConfirm_clicked()
     QString password = ui->leBankPassword->text();
     m_success = DbManager::instance()->order(username, password);
     if(m_success) {
-        QMessageBox::information(this, "XKOMX", "Zlozono zamowienie");
+        QMessageBox::information(this, "XKOMX", "Ordered successfully!");
         emit on_success();
         this->close();
     }
-    else QMessageBox::warning(this, "XKOMX", "Niezrealizowano zamowienia");
+    else QMessageBox::warning(this, "XKOMX", "Order failed!");
 }
 
 
