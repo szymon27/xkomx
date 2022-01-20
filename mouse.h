@@ -13,7 +13,7 @@ public:
     Mouse(int id, DeviceType deviceType, QString producer, QString model,
           int count, double price, QImage image, ImageType imageType,
           QString description);
-    ~Mouse(){qDebug() << "inhe";};
+    ~Mouse(){};
     virtual QString description() override;
     bool wireless() const;
     void setWireless(bool newWireless);

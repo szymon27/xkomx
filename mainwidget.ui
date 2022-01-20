@@ -17,46 +17,13 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="lbDeviceType">
-         <property name="text">
-          <string>Device type:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="cbxDeviceType"/>
-       </item>
-      </layout>
+      <widget class="QComboBox" name="cbxDeviceType"/>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Prodeucer:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="cbxProducer"/>
-       </item>
-      </layout>
+      <widget class="QComboBox" name="cbxProducer"/>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Sorting:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="cbxSorting"/>
-       </item>
-      </layout>
+      <widget class="QComboBox" name="cbxSorting"/>
      </item>
      <item>
       <widget class="QLineEdit" name="leSearch">
@@ -134,7 +101,7 @@
         <x>0</x>
         <y>0</y>
         <width>623</width>
-        <height>408</height>
+        <height>432</height>
        </rect>
       </property>
       <widget class="QWidget" name="verticalLayoutWidget">

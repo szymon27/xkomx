@@ -17,7 +17,7 @@ public:
     Computer(int id, DeviceType deviceType, QString producer, QString model,
             int count, double price, QImage image, ImageType imageType,
             QString description);
-    ~Computer(){qDebug() << "inhe";};
+    ~Computer(){};
     const QString processor() const;
     void setProcessor(const QString processor);
     const QString ram() const;

@@ -16,7 +16,7 @@ public:
     Monitor(int id, DeviceType deviceType, QString producer, QString model,
             int count, double price, QImage image, ImageType imageType,
             QString description);
-    ~Monitor(){qDebug() << "inhe";};
+    ~Monitor(){};
     int refreshRate() const;
     void setRefreshRate(int newRefreshRate);
     double screenSize() const;

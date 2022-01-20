@@ -1,6 +1,5 @@
 #include "addeditdevicewindow.h"
 #include "ui_addeditdevicewindow.h"
-#include <QDebug>
 AddEditDeviceWindow::AddEditDeviceWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddEditDeviceWindow)
