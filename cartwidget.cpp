@@ -80,6 +80,6 @@ void CartWidget::on_btnRemoveAll_clicked()
 
 void CartWidget::setPrice()
 {
-    ui->lbSum->setText(QString::number(Cart::instance()->sum()) + " PLN");
+    ui->lbSum->setText(QString::number(Cart::instance()->sum(),'f',2) + " PLN");
 }
 

@@ -62,7 +62,7 @@
       <widget class="QLineEdit" name="leSearch">
        <property name="maximumSize">
         <size>
-         <width>200</width>
+         <width>175</width>
          <height>16777215</height>
         </size>
        </property>
@@ -70,6 +70,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnSearch">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>70</width>
@@ -83,11 +89,29 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnClear">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>70</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#bntClear{
+	background-color:#e8474c;
+	border: 2px solid #e8474c;
+	padding: 0 10px;
+	font-family:Helvetica;
+	font-size: 14px;
+ 	font-weight: bold;
+	color:white;
+	border-image:url(C:\Users\patry\OneDrive\Pulpit);
+}</string>
        </property>
        <property name="text">
         <string>Clear filters</string>
@@ -98,6 +122,9 @@
    </item>
    <item>
     <widget class="QScrollArea" name="saShop">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>

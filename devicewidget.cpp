@@ -17,7 +17,7 @@ DeviceWidget::~DeviceWidget()
 
 void DeviceWidget::setControls(){
     ui->textEdit->setText(m_device->description());
-    ui->lbPrice->setText(QString::number(m_device->price()) + " PLN");
+    ui->lbPrice->setText(QString::number(m_device->price(),'f',2) + " PLN");
     ui->lbImage->setPixmap(QPixmap::fromImage(m_device->image()));
 }
 

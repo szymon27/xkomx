@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>672</width>
-    <height>467</height>
+    <width>700</width>
+    <height>450</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>450</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>XKOMX</string>
@@ -26,8 +38,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>561</width>
-          <height>445</height>
+          <width>589</width>
+          <height>428</height>
          </rect>
         </property>
         <widget class="QWidget" name="verticalLayoutWidget_2">

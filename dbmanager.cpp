@@ -176,7 +176,7 @@ QVector<OrderDetails> DbManager::orderDevices(int oid) const
         int count = query.value(1).toInt();
         double price = query.value(2).toDouble();
         QString model = query.value(3).toString();
-        QString producer = query.value(3).toString();
+        QString producer = query.value(4).toString();
         list.append(OrderDetails(count, price, model, producer));
     }
     return list;

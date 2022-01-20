@@ -8,7 +8,7 @@ OrderHistoryWidget::OrderHistoryWidget(Order o, QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lbDate->setText(m_order.orderDate().toString("dd.MM.yyyy"));
-    ui->lbTotalCost->setText(QString::number(m_order.totalCost()) + " PLN");
+    ui->lbTotalCost->setText(QString::number(m_order.totalCost(),'f',2) + " PLN");
 }
 
 OrderHistoryWidget::~OrderHistoryWidget()

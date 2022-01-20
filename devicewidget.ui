@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>XKOMX</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#DeviceWidget{background-color:#222222;border: 2px solid #e8474c;}</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QLabel" name="lbImage">

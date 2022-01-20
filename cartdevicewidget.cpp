@@ -11,9 +11,9 @@ CartDeviceWidget::CartDeviceWidget(CartElement cartElement, QWidget *parent) :
     ui->sbxQuantity->setValue(cartElement.count); //zmiana na ilosc w koszyku z bazy
     ui->lbProducer->setText(cartElement.device->producer());
     ui->lbModel->setText(cartElement.device->model());
-    ui->lbPrice->setText(QString::number(cartElement.device->price()) + " PLN");
+    ui->lbPrice->setText(QString::number(cartElement.device->price(),'f',2) + " PLN");
     ui->lbImage->setPixmap(QPixmap::fromImage(cartElement.device->image()));
-    ui->lbTotalPrice->setText(QString::number(cartElement.device->price() * cartElement.count * 1)); // zmiana na sbxQuantity.getValue()
+    ui->lbTotalPrice->setText(QString::number(cartElement.device->price() * cartElement.count * 1,'f',2)+ " PLN"); // zmiana na sbxQuantity.getValue()
 }
 
 CartDeviceWidget::~CartDeviceWidget()
@@ -24,7 +24,7 @@ CartDeviceWidget::~CartDeviceWidget()
 void CartDeviceWidget::on_sbxQuantity_valueChanged(int count)
 {
     Cart::instance()->setCountOfCartElement(m_cartElement.device->id(), count);
-    ui->lbTotalPrice->setText(QString::number(m_cartElement.device->price() * count * 1));
+    ui->lbTotalPrice->setText(QString::number(m_cartElement.device->price() * count * 1,'f',2)+ " PLN");
     emit changePrice();
 }
 
