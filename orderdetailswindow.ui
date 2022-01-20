@@ -42,13 +42,13 @@
       <widget class="QLabel" name="lbName">
        <property name="minimumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -68,13 +68,13 @@
       <widget class="QLabel" name="lbSurname">
        <property name="minimumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -94,13 +94,13 @@
       <widget class="QLabel" name="lbCity">
        <property name="minimumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -136,13 +136,13 @@
       <widget class="QLabel" name="lbAddress">
        <property name="minimumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -162,13 +162,13 @@
       <widget class="QLabel" name="lbCountry">
        <property name="minimumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>46</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -198,13 +198,13 @@
       <widget class="QLabel" name="label_3">
        <property name="minimumSize">
         <size>
-         <width>80</width>
+         <width>113</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>113</width>
          <height>16777215</height>
         </size>
        </property>
@@ -224,13 +224,13 @@
       <widget class="QLabel" name="label_4">
        <property name="minimumSize">
         <size>
-         <width>80</width>
+         <width>113</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>113</width>
          <height>16777215</height>
         </size>
        </property>
