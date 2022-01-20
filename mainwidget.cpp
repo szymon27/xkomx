@@ -138,9 +138,9 @@ void MainWidget::on_btnClear_clicked()
     ui->cbxProducer->setDisabled(true);
     ui->cbxSorting->setDisabled(true);
 
-    ui->cbxDeviceType->setCurrentIndex(-1);
-    ui->cbxProducer->setCurrentIndex(-1);
-    ui->cbxSorting->setCurrentIndex(-1);
+    ui->cbxDeviceType->setCurrentIndex(0);
+    ui->cbxProducer->setCurrentIndex(0);
+    ui->cbxSorting->setCurrentIndex(0);
 
     ui->cbxDeviceType->setEnabled(true);
     ui->cbxProducer->setEnabled(true);
