@@ -35,7 +35,6 @@ private:
     Ui::MainWidget *ui;
     void fillCombo();
     void filter();
-    QVector<Device*> devices;
 };
 
 #endif // MAINWIDGET_H

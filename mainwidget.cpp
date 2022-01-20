@@ -17,10 +17,6 @@ MainWidget::MainWidget(QWidget *parent) :
 MainWidget::~MainWidget()
 {
     delete ui;
-    foreach (Device *device, devices) {
-    delete device;
-    }
-    devices.clear();
 }
 
 void MainWidget::setUpWidget()
@@ -33,10 +29,7 @@ void MainWidget::setUpWidget()
         item = nullptr;
     }
 
-    foreach (Device *device, devices) {
-    delete device;
-    }
-    devices.clear();
+        QVector<Device*> devices;
     devices = DbManager::instance()->devicesList();
     for(int i = 0; i < devices.size(); i++) {
         DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
@@ -98,10 +91,7 @@ void MainWidget::filter()
     if(ui->cbxSorting->currentIndex()>0){
         sqlStatement += "ORDER BY " + sortingToSQL(stringToSorting(ui->cbxSorting->currentText()));
     }
-    foreach (Device *device, devices) {
-    delete device;
-    }
-    devices.clear();
+        QVector<Device*> devices;
     devices = DbManager::instance()->filtredList(sqlStatement);
     for(int i = 0; i < devices.size(); i++) {
         DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
