@@ -8,6 +8,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonValue>
+#include <QDebug>
 
 class Device {
 protected:
@@ -23,7 +24,7 @@ protected:
     Device(int id, DeviceType deviceType, QString producer, QString model,
            int count, double price, QImage image, ImageType imageType);
 public:
-
+    virtual ~Device(){qDebug() << "base";};
     int id() const;
     void setId(int id);
     DeviceType deviceType() const;

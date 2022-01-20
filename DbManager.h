@@ -30,6 +30,7 @@ protected:
     DbManager();
     ~DbManager();
     static DbManager* s_instance;
+
 public:
     DbManager(DbManager&) = delete;
     DbManager operator=(DbManager&) = delete;
@@ -39,7 +40,7 @@ public:
     bool userExists(QString username);
     bool signUp(NewUser user);
 
-    QVector<Device*> devicesList() const;
+    QVector<Device*> devicesList();
     QVector<User> usersList() const;
     bool changeUserType(int id, int newType)const;
     QVector<Order> Orders() const;
@@ -51,10 +52,7 @@ public:
     bool changeUserDetails(QString name, QString surname, QString city, QString postcode, QString address, QString country);
     QList<QString> getProducers();
 
-    QVector<Device*> filterProducer(QString producer);
-    QVector<Device*> filterDeviceType(DeviceType deviceType);
-    QVector<Device*> sorted(Sorting sorting);
-    QVector<Device*> search(QString search);
+    QVector<Device*> filtredList(QString statement);
 
     bool removeById(int id);
 

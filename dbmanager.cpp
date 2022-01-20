@@ -6,9 +6,9 @@ DbManager* DbManager::s_instance = nullptr;
 DbManager::DbManager() {
     m_qSqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao projekt\\xkomx.db");
-    //m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
+    m_qSqlDatabase.setDatabaseName("C:\\Users\\Max\\Desktop\\baza\\xkomx.db");
     //m_qSqlDatabase.setDatabaseName("C:\\Users\\szymo\\Desktop\\pipao_proj\\xkomx.db");
-    m_qSqlDatabase.setDatabaseName("A:\\Projekty programowanie\\xcomx baza\\xkomx.db");
+    //m_qSqlDatabase.setDatabaseName("A:\\Projekty programowanie\\xcomx baza\\xkomx.db");
 
     m_qSqlDatabase.open();
 }
@@ -83,9 +83,9 @@ bool DbManager::signUp(NewUser newUser) {
     return query.exec();
 }
 
-QVector<Device*> DbManager::devicesList() const {
-    QVector<Device*> list;
+QVector<Device*> DbManager::devicesList(){
     QSqlQuery query;
+    QVector<Device*> list;
     query.prepare("SELECT * FROM devices;");
     query.exec();
     while(query.next()) {
@@ -281,135 +281,12 @@ QList<QString> DbManager::getProducers()
     return list;
 }
 
-QVector<Device *> DbManager::filterProducer(QString producer)
+QVector<Device *> DbManager::filtredList(QString statement)
 {
     QSqlQuery query;
     QVector<Device*> list;
-    query.prepare("SELECT * FROM devices WHERE producer=:producer");
-    query.bindValue(":producer", QVariant(producer));
-    query.exec();
-    while(query.next()) {
-        int id = query.value(0).toInt();
-        DeviceType deviceType = (DeviceType)query.value(1).toInt();
-        QString producer = query.value(2).toString();
-        QString model = query.value(3).toString();
-        QString description = query.value(4).toString();
-        int count = query.value(5).toInt();
-        double price = query.value(6).toDouble();
-        QByteArray byteArray = query.value(7).toByteArray();
-        ImageType imageType = (ImageType)query.value(8).toInt();
-        QBuffer buffer(&byteArray);
-        buffer.open(QIODevice::ReadOnly);
-        QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
-        QImage image = imageReader.read();
-
-        switch(deviceType) {
-        case Unknown:
-            break;
-        case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Computer: list.append(new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Mouse: list.append(new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Keyboard: list.append(new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-        }
-
-    }
-    return list;
-}
-
-QVector<Device *> DbManager::filterDeviceType(DeviceType deviceType)
-{
-    QSqlQuery query;
-    QVector<Device*> list;
-    query.prepare("SELECT * FROM devices WHERE device_type_id=:deviceType");
-    query.bindValue(":deviceType", QVariant((int) deviceType));
-    query.exec();
-    while(query.next()) {
-        int id = query.value(0).toInt();
-        DeviceType deviceType = (DeviceType)query.value(1).toInt();
-        QString producer = query.value(2).toString();
-        QString model = query.value(3).toString();
-        QString description = query.value(4).toString();
-        int count = query.value(5).toInt();
-        double price = query.value(6).toDouble();
-        QByteArray byteArray = query.value(7).toByteArray();
-        ImageType imageType = (ImageType)query.value(8).toInt();
-        QBuffer buffer(&byteArray);
-        buffer.open(QIODevice::ReadOnly);
-        QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
-        QImage image = imageReader.read();
-
-        switch(deviceType) {
-        case Unknown:
-            break;
-        case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Computer: list.append(new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Mouse: list.append(new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Keyboard: list.append(new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-        }
-
-    }
-    return list;
-}
-
-QVector<Device *> DbManager::sorted(Sorting sorting)
-{
-    QSqlQuery query;
-    QVector<Device*> list;
-    switch(sorting){
-    default:
-    case AZProd:
-        query.prepare("SELECT * FROM devices ORDER BY producer ASC");
-        break;
-    case ZAProd:
-        query.prepare("SELECT * FROM devices ORDER BY producer DESC");
-        break;
-    case AZModel:
-        query.prepare("SELECT * FROM devices ORDER BY model ASC");
-        break;
-    case ZAModel:
-        query.prepare("SELECT * FROM devices ORDER BY model DESC");
-        break;
-    case PriceAsc:
-        query.prepare("SELECT * FROM devices ORDER BY price ASC");
-        break;
-    case PriceDsc:
-        query.prepare("SELECT * FROM devices ORDER BY price DESC");
-        break;
-    }
-    query.exec();
-    while(query.next()) {
-        int id = query.value(0).toInt();
-        DeviceType deviceType = (DeviceType)query.value(1).toInt();
-        QString producer = query.value(2).toString();
-        QString model = query.value(3).toString();
-        QString description = query.value(4).toString();
-        int count = query.value(5).toInt();
-        double price = query.value(6).toDouble();
-        QByteArray byteArray = query.value(7).toByteArray();
-        ImageType imageType = (ImageType)query.value(8).toInt();
-        QBuffer buffer(&byteArray);
-        buffer.open(QIODevice::ReadOnly);
-        QImageReader imageReader(&buffer, imageTypeToString(imageType).toStdString().c_str());
-        QImage image = imageReader.read();
-
-        switch(deviceType) {
-        case Unknown:
-            break;
-        case DeviceType::Monitor: list.append(new class::Monitor(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Computer: list.append(new class::Computer(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Mouse: list.append(new class::Mouse(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-            case DeviceType::Keyboard: list.append(new class::Keyboard(id, deviceType, producer, model, count, price, image, imageType, description)); break;
-        }
-
-    }
-    return list;
-}
-
-QVector<Device *> DbManager::search(QString search)
-{
-    QSqlQuery query;
-    QVector<Device*> list;
-    query.prepare("SELECT * FROM devices WHERE model like '%" + search + "%' OR producer like '%" + search + "%';");
+    list.clear();
+    query.prepare(statement);
     query.exec();
     while(query.next()) {
         int id = query.value(0).toInt();

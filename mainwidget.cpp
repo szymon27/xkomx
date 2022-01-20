@@ -17,6 +17,10 @@ MainWidget::MainWidget(QWidget *parent) :
 MainWidget::~MainWidget()
 {
     delete ui;
+    foreach (Device *device, devices) {
+    delete device;
+    }
+    devices.clear();
 }
 
 void MainWidget::setUpWidget()
@@ -29,7 +33,11 @@ void MainWidget::setUpWidget()
         item = nullptr;
     }
 
-    QVector<Device*> devices = DbManager::instance()->devicesList();
+    foreach (Device *device, devices) {
+    delete device;
+    }
+    devices.clear();
+    devices = DbManager::instance()->devicesList();
     for(int i = 0; i < devices.size(); i++) {
         DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
         ui->vlShop->addWidget(productWidget);
@@ -39,6 +47,7 @@ void MainWidget::setUpWidget()
 void MainWidget::fillCombo()
 {
     QList<QString> list;
+    list.append("Device type");
     list.append(deviceTypeToString(DeviceType::Computer));
     list.append(deviceTypeToString(DeviceType::Keyboard));
     list.append(deviceTypeToString(DeviceType::Mouse));
@@ -46,10 +55,12 @@ void MainWidget::fillCombo()
     ui->cbxDeviceType->addItems(list);
 
     list.clear();
-    list = DbManager::instance()->getProducers();
+    list.append("Producer");
+    list += DbManager::instance()->getProducers();
     ui->cbxProducer->addItems(list);
 
     list.clear();
+    list.append("Sorting");
     list.append((sortingToString(Sorting::AZProd)));
     list.append((sortingToString(Sorting::ZAProd)));
     list.append((sortingToString(Sorting::AZModel)));
@@ -63,7 +74,7 @@ void MainWidget::fillCombo()
     ui->cbxSorting->setEnabled(true);
 }
 
-void MainWidget::on_cbxDeviceType_currentTextChanged(const QString &arg1)
+void MainWidget::filter()
 {
     QLayoutItem* item;
     while ( ( item = ui->vlShop->takeAt( 0 ) ) != NULL )
@@ -72,65 +83,52 @@ void MainWidget::on_cbxDeviceType_currentTextChanged(const QString &arg1)
         delete item;
         item = nullptr;
     }
-
-    QVector<Device*> devices = DbManager::instance()->filterDeviceType(stringToDeviceType(arg1));
+    QString sqlStatement = "SELECT * FROM devices WHERE ";
+    if(ui->cbxDeviceType->currentIndex()>0){
+        sqlStatement += "device_type_id = " + QString::number((int)stringToDeviceType(ui->cbxDeviceType->currentText())) + " AND ";
+    }
+    if(ui->cbxProducer->currentIndex()>0){
+        sqlStatement += "producer = \"" + ui->cbxProducer->currentText() + "\" AND ";
+    }
+    if(ui->leSearch->text().size()>0){
+        QString search = ui->leSearch->text();
+        sqlStatement += "(model like '%" + search + "%' OR producer like '%" + search + "%') AND ";
+    }
+    sqlStatement += "1 = 1 ";
+    if(ui->cbxSorting->currentIndex()>0){
+        sqlStatement += "ORDER BY " + sortingToSQL(stringToSorting(ui->cbxSorting->currentText()));
+    }
+    foreach (Device *device, devices) {
+    delete device;
+    }
+    devices.clear();
+    devices = DbManager::instance()->filtredList(sqlStatement);
     for(int i = 0; i < devices.size(); i++) {
         DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
         ui->vlShop->addWidget(productWidget);
     }
 }
 
-void MainWidget::on_cbxProducer_currentTextChanged(const QString &arg1)
+void MainWidget::on_cbxDeviceType_currentTextChanged()
 {
-    QLayoutItem* item;
-    while ( ( item = ui->vlShop->takeAt( 0 ) ) != NULL )
-    {
-        delete item->widget();
-        delete item;
-        item = nullptr;
-    }
+    filter();
+}
 
-    QVector<Device*> devices = DbManager::instance()->filterProducer(arg1);
-    for(int i = 0; i < devices.size(); i++) {
-        DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
-        ui->vlShop->addWidget(productWidget);
-    }
+void MainWidget::on_cbxProducer_currentTextChanged()
+{
+    filter();
 }
 
 
-void MainWidget::on_cbxSorting_currentTextChanged(const QString &arg1)
+void MainWidget::on_cbxSorting_currentTextChanged()
 {
-    QLayoutItem* item;
-    while ( ( item = ui->vlShop->takeAt( 0 ) ) != NULL )
-    {
-        delete item->widget();
-        delete item;
-        item = nullptr;
-    }
-
-    QVector<Device*> devices = DbManager::instance()->sorted(stringToSorting(arg1));
-    for(int i = 0; i < devices.size(); i++) {
-        DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
-        ui->vlShop->addWidget(productWidget);
-    }
+    filter();
 }
 
 
 void MainWidget::on_btnSearch_clicked()
 {
-    QLayoutItem* item;
-    while ( ( item = ui->vlShop->takeAt( 0 ) ) != NULL )
-    {
-        delete item->widget();
-        delete item;
-        item = nullptr;
-    }
-
-    QVector<Device*> devices = DbManager::instance()->search(ui->leSearch->text());
-    for(int i = 0; i < devices.size(); i++) {
-        DeviceWidget *productWidget = new DeviceWidget(devices.at(i));
-        ui->vlShop->addWidget(productWidget);
-    }
+    filter();
 }
 
 

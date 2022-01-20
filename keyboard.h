@@ -15,6 +15,7 @@ public:
     Keyboard(int id, DeviceType deviceType, QString producer, QString model,
              int count, double price, QImage image, ImageType imageType,
              QString description);
+    ~Keyboard(){qDebug() << "inhe";};
     virtual QString description() override;
     bool wireless() const;
     void setWireless(bool newWireless);

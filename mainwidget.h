@@ -21,11 +21,11 @@ public:
     void setUpWidget();
 
 private slots:
-    void on_cbxDeviceType_currentTextChanged(const QString &arg1);
+    void on_cbxDeviceType_currentTextChanged();
 
-    void on_cbxProducer_currentTextChanged(const QString &arg1);
+    void on_cbxProducer_currentTextChanged();
 
-    void on_cbxSorting_currentTextChanged(const QString &arg1);
+    void on_cbxSorting_currentTextChanged();
 
     void on_btnSearch_clicked();
 
@@ -34,6 +34,8 @@ private slots:
 private:
     Ui::MainWidget *ui;
     void fillCombo();
+    void filter();
+    QVector<Device*> devices;
 };
 
 #endif // MAINWIDGET_H

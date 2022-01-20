@@ -42,22 +42,22 @@ QString sortingToSQL(Sorting sorting)
 {
     switch(sorting){
     case AZProd:
-        return "ORDER BY producer ASC";
+        return "producer ASC";
         break;
     case ZAProd:
-        return "ORDER BY producer DESC";
+        return "producer DESC";
         break;
     case AZModel:
-        return "ORDER BY model ASC";
+        return "model ASC";
         break;
     case ZAModel:
-        return "ORDER BY model DESC";
+        return "model DESC";
         break;
     case PriceAsc:
-        return "ORDER BY price ASC";
+        return "price ASC";
         break;
     case PriceDsc:
-        return "ORDER BY price DESC";
+        return "price DESC";
         break;
 
     }
